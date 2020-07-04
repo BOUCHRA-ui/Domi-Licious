@@ -93,6 +93,21 @@
                     <li>
                         <a class="page-scroll" href="contact.html">Contact Us</a>
                     </li>
+					<li>
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<em>{{ app.user.email }}</em> || <a href="{{path('app_logout')}}">Se déconnecter</a>
+					{% else %}
+					 <button type="button" class="btn btn-dark">
+                         <a href="{{path('app_login')}}">Se connecter</a> 
+                     </button>
+                     <button type="button" class="btn btn-dark">
+                         <a href="{{path('app_register')}}">S'inscrire</a>
+                    </button>
+					{% endif %}
+
+
+					</li>
+
 				</ul>
 			</div>
 		</div>
