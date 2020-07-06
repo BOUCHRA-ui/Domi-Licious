@@ -475,3 +475,9 @@ a.btn:focus{outline: 0;}
 
 .btn-4 {background: #DA251D;border: 2px solid transparent;margin:20px 0 10px 0;font-size:25px;}
 .btn-4:hover {color:#333;border:2px solid #DA251D;background:transparent;}
+
+.image-chef{
+
+	width: 250px;
+	height: 190px;
+}
