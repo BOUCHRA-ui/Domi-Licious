@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,20 +10,20 @@
 	
 	{% block stylesheets %}
 	 <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
 	
 	<!-- Custom Theme files -->
-	<link href="css/style.css" rel='stylesheet' type='text/css' />
-	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
-	<link href="css/contact-buttons.css" rel="stylesheet">
+	<link href="{{ asset('css/style.css')}}" rel='stylesheet' type='text/css' />
+	<link href="{{ asset('css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all"/>
+	<link href="{{ asset('css/contact-buttons.css')}}" rel="stylesheet">
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery.min.js"></script>
+	<script src="{{ asset('js/jquery.min.js')}}"></script>
 	
 	<!---pop-up-box---->
-	<script type="text/javascript" src="js/modernizr.custom.min.js"></script>    
-	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<script type="text/javascript" src="{{ asset('js/modernizr.custom.min.js')}}"></script>    
+	<script src="{{ asset('js/jquery.magnific-popup.js')}}" type="text/javascript"></script>
 	<!---//pop-up-box---->
 		
 	<script>
@@ -67,31 +67,27 @@
 				</button>
 				<a class="navbar-brand" href="#">
 					<img src="images/logo.png" class="hidden-xs" alt="">
-					<h3 class="visible-xs">RedRestaurant</h3>
+					<h3 class="visible-xs">Domi'Licious</h3>
 				</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-                        <a class="page-scroll" href="#intro">Home</a>
+                        <a class="page-scroll" href="{{path('accueil')}}">Accueil</a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="{{path('chef_index')}}">Chefs</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#menu">Menu</a>
+                        <a class="page-scroll" href="#">Menus</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#staff">Staff</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="{{path('booking_index')}}">Reservation</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#booking">Booking</a>
-                    </li>
+                        <a class="page-scroll" href="#">Contactez nous</a>
                     <li>
-                        <a class="page-scroll" href="contact.html">Contact Us</a>
+                        <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
                     </li>
 					<li>
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -125,56 +121,51 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			    <div class="item active">
-			    	<img src="images/1.jpg" alt="First slide">
+			    	<img src="{{ asset('images/1.jpg')}}" alt="First slide">
                     <!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2>Welcome to Red-Restaurant</h2>
+                            <h2>Bienvenue chez Domi'Licious</h2>
                             <br>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
                             <br>
-                            <div class="">
-                                <a class="btn btn-1 btn-sm" href="#about">About us</a><a class="btn btn-1 btn-sm" href="#works">Our works</a>
-							</div>
+                            
                         </div>
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="images/2.jpg" alt="Second slide">
+			    	<img src="{{ asset('images/2.jpg')}}" alt="Second slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2>The World's 50 Best Restaurants</h2>
+                            <h2>Nos chefs expérimentés</h2>
                             <br>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
                             <br>
-                            <div class="">
-                                 <a class="btn btn-1 btn-sm" href="#about">About us</a><a class="btn btn-1 btn-sm" href="#works">Our works</a>
-							</div>
+                            
                         </div>
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="images/3.jpg" alt="Third slide">
+			    	<img src="{{ asset('images/3.jpg')}}" alt="Third slide">
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
-                            <h2>National Restaurant Association</h2>
+                            <h2>Nos menu d'exeption</h2>
                             <br>
                             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
                             <br>
-                            <div class="">
-                                <a class="btn btn-1 btn-sm" href="#about">About us</a><a class="btn btn-1 btn-sm" href="#works">Our works</a>
-							</div>
+                            
+                        </div>
                         </div>
                     </div><!-- /header-text -->
 			    </div>
 			</div>
 			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+			<a class="left carousel-control" href="{{ asset('#carousel-example-generic')}}" data-slide="prev">
 		    	<span class="glyphicon glyphicon-chevron-left"></span>
 			</a>
-			<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+			<a class="right carousel-control" href="{{ asset('#carousel-example-generict')}}" data-slide="next">
 		    	<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		</div><!-- /carousel -->
@@ -186,356 +177,7 @@
         {% block body %}
         <a id='backTop'>Back To Top</a>
 	<!-- /Back To Top -->
-	
-	<!-- /////////////////////////////////////////Content -->
-	<div id="page-content" class="index-page">
-	
-		<!-- ////////////Content Box 01 -->
-		<div id="services"></div>
-		<section class="box-content box-1">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4 ">
-						<div class="service">
-							<a href="#"><img src="images/icon1.png" title="icon-name"></a>
-							<h3>Sucess Story</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							<a class="btn btn-2 btn-sm" href="#">Read More</a>
-						</div>
-			 		</div>
-			 		<div class="col-sm-4 ">
-						<div class="service">
-							<a href="#"><img src="images/icon3.png" title="icon-name"></a>
-							<h3>Map</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							<a class="btn btn-2 btn-sm" href="#">Read More</a>
-						</div>
-			 		</div>
-			 		<div class="col-sm-4 ">
-						<div class="service">
-							<a href="#"><img src="images/icon2.png" title="icon-name"></a>
-							<h3>Food Menu</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							<a class="btn btn-2 btn-sm" href="#">Read More</a>
-						</div>
-			 		</div>		
-				</div>
-			</div>
-		</section>
-	
-		<!-- ////////////Content Box 02 -->
-		<section class="box-content box-2 box-style" id="menu">
-			<div class="container">
-				<div class="row heading">
-					<div class="col-lg-12">	
-						<h2>Menu</h2>
-						<div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut</br> laoreet dolore magna aliquam erat volutpat.
-						Ut wisi enim ad.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut .</div>
-	                </div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"><img class="media__image " src="images/1-thumb.jpg">
-								  <div class="media__body">
-									<h2>$45</h2>
-									<p>Only</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>LOREM IPSUM IS SIMPLY</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-									<a class="btn btn-3" href="#">Read More</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"><img class="media__image " src="images/2-thumb.jpg">
-								  <div class="media__body">
-									<h2>$45</h2>
-									<p>Only</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>LOREM IPSUM IS SIMPLY</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-									<a class="btn btn-3" href="#">Read More</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"><img class="media__image " src="images/3-thumb.jpg">
-								  <div class="media__body">
-									<h2>$45</h2>
-									<p>Only</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>LOREM IPSUM IS SIMPLY</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-									<a class="btn btn-3" href="#">Read More</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"><img class="media__image " src="images/4-thumb.jpg">
-								  <div class="media__body">
-									<h2>$45</h2>
-									<p>Only</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>LOREM IPSUM IS SIMPLY</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-									<a class="btn btn-3" href="#">Read More</a>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<!-- ////////////Content Box 03 -->
-		<section class="box-content box-3" id="staff">
-			<div class="container">
-				<div class="row heading">
-					<div class="col-lg-12">	
-	                    <h2>SUPER CHEF</h2>
-                    	<div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut</br> laoreet dolore magna aliquam erat volutpat.
-						Ut wisi enim ad.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut .</div>
-	                </div>
-				</div>
-				<div class="row center">
-					<div class="col-md-6">
-						<div class="wrap-img">
-							<img src="images/11.jpg">
-						</div>
-						<ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a>
-                            </li>
-                        </ul>
-					</div>
-					<div class="col-md-6">
-						<div class="row">
-							<h3>Nibh congue scripserit ne mel</h3>
-							<p>Nibh congue scripserit ne mel, pri ne amet mnesarchum. Dicat maiestat per modo simul signiferumque te. Dolore intellegat eu cum, ut est Nostro eloquentiam interpretaris vel id. Minim consequuntur et eam, nonumy equidem pri. Vide virtute ocurreret per in antiopam.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	
-		<section class="box-content box-4 box-style" id="portfolio">
-			<div class="container">
-				<div class="row heading">
-					<div class="col-lg-12">	
-	                    <h2>PORTPOLIO</h2>
-                    	<div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut</br> laoreet dolore magna aliquam erat volutpat.
-						Ut wisi enim ad.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut .</div>
-	                </div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-it" class="play-icon popup-with-zoom-anim"><img src="images/s1.jpg" alt=""/></a>
-							<div id="small-dialog-it" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s1.jpg" alt="">
-								<h4>Italian Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-in" class="play-icon popup-with-zoom-anim"><img src="images/s2.jpg" alt=""/></a>
-							<div id="small-dialog-in" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s2.jpg" alt="">
-								<h4>Indian Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-fr" class="play-icon popup-with-zoom-anim"><img src="images/s3.jpg" alt=""/></a>
-							<div id="small-dialog-fr" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s3.jpg" alt="">
-								<h4>French Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-sh" class="play-icon popup-with-zoom-anim"><img src="images/s4.jpg" alt=""/></a>
-							<div id="small-dialog-sh" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s4.jpg" alt="">
-								<h4>Steak House Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-su" class="play-icon popup-with-zoom-anim"><img src="images/s6.jpg" alt=""/></a>
-							<div id="small-dialog-su" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s6.jpg" alt="">
-								<h4>Sushi Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-me" class="play-icon popup-with-zoom-anim"><img src="images/s7.jpg" alt=""/></a>
-							<div id="small-dialog-me" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s7.jpg" alt="">
-								<h4>Mexican Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-ch" class="play-icon popup-with-zoom-anim"><img src="images/s8.jpg" alt=""/></a>
-							<div id="small-dialog-ch" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s8.jpg" alt="">
-								<h4>Chinese Food</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="portfolio-img">
-							<a href="#small-dialog-pi" class="play-icon popup-with-zoom-anim"><img src="images/s9.jpg" alt=""/></a>
-							<div id="small-dialog-pi" class="mfp-hide">
-								<div class="portfolio-items">
-								<img src="images/s9.jpg" alt="">
-								<h4>PIZZA</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		
-		<!-- ////////////Content Box 05 -->
-		<section class="box-content box-5" id="booking">
-			<div class="container">
-				<div class="row heading">
-					<div class="col-lg-12">	
-						<h2>BOOKING</h2>
-						<div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut</br> laoreet dolore magna aliquam erat volutpat.
-						Ut wisi enim ad.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut .</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 box-item">
-						<div class="row">
-							<h3>Complete the Submission Form</h3>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-							<h3>Or Just Make a Call</h3>
-							<p>+6221 888 888 90 <br>
-								+6221 888 88891</p>
-							<p>info@yourdomain.com</p>
-						</div>
-					</div>
-					<div class="col-md-8">
-						<form name="form1" method="post" action="">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-									<input type="text" class="form-control input-lg" name="name" id="name" placeholder="Enter name" required="required" />
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="email" class="form-control input-lg" name="email" id="email" placeholder="Enter email" required="required" />
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control input-lg" name="subject" id="subject" placeholder="Subject" required="required" />
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<input type="date" class="form-control input-lg" name="date" id="date" placeholder="Date" required="required" />
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<input type="time" class="form-control input-lg" name="time" id="time" placeholder="Time" required="required" />
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<textarea name="message" id="message" class="form-control" rows="4" cols="25" required="required"
-										placeholder="Message"></textarea>
-									</div>						
-									<button type="submit" class="btn btn-4 btn-block" name="btnBooking" id="btnBbooking">
-								Book Now</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+
     {% endblock %}
        
         {% block footer %}
@@ -548,26 +190,26 @@
 						<div class="content">
 							<div class="row">
 								<div class="col-md-6">
-									<a href="#"><img src="images/15.jpg" /></a>
+									<a href="#"><img src="{{ asset('images/15.jpg')}}" /></a>
 								</div>
 								<div class="col-md-6">
-									<a href="#"><img src="images/16.jpg" /></a>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<a href="#"><img src="images/17.jpg" /></a>
-								</div>
-								<div class="col-md-6">
-									<a href="#"><img src="images/18.jpg" /></a>
+									<a href="#"><img src="{{ asset('images/16.jpg')}}" /></a>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
-									<a href="#"><img src="images/19.jpg" /></a>
+									<a href="#"><img src="{{ asset('images/17.jpg')}}" /></a>
 								</div>
 								<div class="col-md-6">
-									<a href="#"><img src="images/20.jpg" /></a>
+									<a href="#"><img src="{{ asset('images/18.jpg')}}" /></a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<a href="#"><img src="{{ asset('images/19.jpg')}}" /></a>
+								</div>
+								<div class="col-md-6">
+									<a href="#"><img src="{{ asset('images/20.jpg')}}" /></a>
 								</div>
 							</div>
 							
@@ -603,7 +245,7 @@
 		<div class="wrap-footer">
 			<div class="clearfix">
 				<div class="col-md-6 col-md-offset-3">
-					<p>Copyright 2020 - <a href="http://www.365bootstrap.com" target="_blank" rel="nofollow">Bootstrap Themes</a> Designed by 365Bootstrap.com</p>
+					<p>Copyright 2020 - <a href="{{ asset('http://www.365bootstrap.com')}}" target="_blank" rel="nofollow">Bootstrap Themes</a> Designed by 365Bootstrap.com</p>
 				</div>
 			</div>	
 		</div>
@@ -613,8 +255,8 @@
 
          {% block javascripts %}
         <!-- Core JavaScript Files -->
-    <script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.backTop.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('js/jquery.backTop.min.js')}}"></script>
 	<script>
 		$(document).ready( function() {
 			$('#backTop').backTop({
@@ -624,8 +266,8 @@
 			});
 		});
 	</script>
-	<script src="js/jquery.contact-buttons.js"></script>
-	<script src="js/demo.js"></script>
+	<script src="{{ asset('js/jquery.contact-buttons.js')}}"></script>
+	<script src="{{ asset('js/demo.js')}}"></script>
         {% endblock %}
 
     </body>
