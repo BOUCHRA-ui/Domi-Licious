@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ChefRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -32,11 +34,6 @@ class Chef
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
-    /**
      * @Vich\UploadableField(mapping="chef_images", fileNameProperty="image")
      * @var File
      */
@@ -48,14 +45,20 @@ class Chef
     private $presentation;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\ManyToOne(targetEntity=TypeCuisine::class, inversedBy="chefs")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $type_de_cuisine;
+    private $typeCuisine;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\OneToMany(targetEntity=Menu::class, mappedBy="chef", orphanRemoval=true)
      */
     private $menu;
+
+    public function __construct()
+    {
+        $this->menu = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,18 +89,6 @@ class Chef
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
     public function setImageFile(File $image = null)
     {
         return $this->imageFile = $image;
@@ -120,26 +111,45 @@ class Chef
         return $this;
     }
 
-    public function getTypeDeCuisine(): ?string
+    public function getTypeCuisine(): ?TypeCuisine
     {
-        return $this->type_de_cuisine;
+        return $this->typeCuisine;
     }
 
-    public function setTypeDeCuisine(string $type_de_cuisine): self
+    public function setTypeCuisine(?TypeCuisine $typeCuisine): self
     {
-        $this->type_de_cuisine = $type_de_cuisine;
+        $this->typeCuisine = $typeCuisine;
 
         return $this;
     }
 
-    public function getMenu(): ?string
+    /**
+     * @return Collection|Menu[]
+     */
+    public function getMenu(): Collection
     {
         return $this->menu;
     }
 
-    public function setMenu(string $menu): self
+    public function addMenu(Menu $menu): self
     {
-        $this->menu = $menu;
+        if (!$this->menu->contains($menu)) {
+            $this->menu[] = $menu;
+            $menu->setChef($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menu $menu): self
+    {
+        if ($this->menu->contains($menu)) {
+            $this->menu->removeElement($menu);
+            // set the owning side to null (unless already changed)
+            if ($menu->getChef() === $this) {
+                $menu->setChef(null);
+            }
+        }
 
         return $this;
     }
