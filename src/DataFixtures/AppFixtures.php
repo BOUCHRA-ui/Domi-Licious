@@ -28,8 +28,7 @@ class AppFixtures extends Fixture
         $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
         $menu->setPlat('Duo de saumon sur son tartare de boeuf');
         $menu->setDessert('Crêpe de Nutella');
-        $manager->flush();
-
+      
         $user = new User();
         $user->setNom('Kuijer');
         $user->setPrenom('Jess');       
@@ -66,7 +65,6 @@ class AppFixtures extends Fixture
         $commentaire3->setEmail($this->getReference('user-admin'));
 
         $manager->persist($commentaire3);
-        $manager->flush();
 
         $chef = new Chef();
         $chef->setNom('Baruch');
@@ -123,7 +121,7 @@ class AppFixtures extends Fixture
         $manager->persist($chef4);
         $manager->persist($chef5);
         $manager->persist($chef6);
-        $manager->flush();
+      
         $user = new User();
         $user->setEmail('test@test.com');
         $user->setRoles(['ROLE_ADMIN']);

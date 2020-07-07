@@ -3,8 +3,8 @@
 {% block title %}Chef index{% endblock %}
 
 {% block body %}
-    <h1>Chef index</h1>
-
+    <h1 class="text-center">Nos Chefs index</h1>
+    <div class="container">
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +13,7 @@
                 <th>Prenom</th>
                 <th>Image</th>
                 <th>Presentation</th>
-                <th>Type_de_cuisine</th>
+                <th>Type de cuisine</th>
                 <th>Menu</th>
                 <th>actions</th>
             </tr>
@@ -24,7 +24,7 @@
                 <td>{{ chef.id }}</td>
                 <td>{{ chef.nom }}</td>
                 <td>{{ chef.prenom }}</td>
-                <td><td><img src="{{ asset('uploads/images/chefs/')}}{{ chef.image }}" class="image"></td>
+                <td><img src="{{ asset('uploads/images/chefs/')}}{{ chef.image }}" class="image-chef">
                 </td>
                 <td>{{ chef.presentation }}</td>
                 <td>{{ chef.typeDeCuisine }}</td>
@@ -41,6 +41,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('chef_new') }}">Create new</a>
 {% endblock %}
