@@ -40,6 +40,11 @@ class Commentaire
      */
     private $email;
 
+    public function __construct()
+    {
+        $this->created_at = new \Datetime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

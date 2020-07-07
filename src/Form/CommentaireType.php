@@ -15,7 +15,6 @@ class CommentaireType extends AbstractType
         $builder
             ->add('titre')
             ->add('message')
-            ->add('created_at')
             ->add('email')
         ;
     }

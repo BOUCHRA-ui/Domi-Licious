@@ -4,16 +4,15 @@
 
 
 {% block body %}
+
+
     <h1>Booking index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
                 <th>Sujet</th>
-                <th>Created_at</th>
+                <th>Date de réservation</th>
                 <th>Message</th>
                 <th>actions</th>
             </tr>
@@ -21,9 +20,7 @@
         <tbody>
         {% for booking in bookings %}
             <tr>
-                <td>{{ booking.id }}</td>
-                <td>{{ booking.nom }}</td>
-                <td>{{ booking.prenom }}</td>
+
                 <td>{{ booking.sujet }}</td>
                 <td>{{ booking.createdAt ? booking.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ booking.message }}</td>
@@ -41,4 +38,5 @@
     </table>
 
     <a href="{{ path('booking_new') }}">Create new</a>
+
 {% endblock %}

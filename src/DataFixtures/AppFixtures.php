@@ -28,14 +28,16 @@ class AppFixtures extends Fixture
         $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
         $menu->setPlat('Duo de saumon sur son tartare de boeuf');
         $menu->setDessert('Crêpe de Nutella');
+
+        $manager->persist($menu);
       
         $user = new User();
-        $user->setNom('Kuijer');
-        $user->setPrenom('Jess');       
-        $user->setEmail('jessicakuijer@me.com');
+        $user->setNom('AdminNom');
+        $user->setPrenom('AdminPrenom');       
+        $user->setEmail('admin@domilicious.com');
         $user->setRoles(['ROLE_ADMIN']);
         
-        $password = $this->encoder->encodePassword($user, '684500');
+        $password = $this->encoder->encodePassword($user, 'admin');
         $user->setPassword($password);
 
         $manager->persist($user);
@@ -124,7 +126,7 @@ class AppFixtures extends Fixture
       
         $user = new User();
         $user->setEmail('test@test.com');
-        $user->setRoles(['ROLE_ADMIN']);
+        $user->setRoles(['ROLE_USER']);
         $user->setPrenom('bouchra');
         $user->setNom('trabelsi');
 
@@ -190,56 +192,44 @@ class AppFixtures extends Fixture
         $manager->persist($user5);
         $manager->persist($user6);
       
-        $this->addReference('user-admin', $user);
-        $this->addReference('user-user', $user2);
+        $this->addReference('user-user', $user);
+        $this->addReference('user-user1', $user2);
         $this->addReference('user-user2', $user3);
         $this->addReference('user-user3', $user4);
         $this->addReference('user-user4', $user5);
         $this->addReference('user-user5', $user6);
 
          $booking = new Booking();
-         $booking->setNom('nom');
-         $booking->setPrenom('prenom');
          $booking->setSujet('sujet');
          $booking->setCreatedAt(new \Datetime());
          $booking->setMessage('message');
-         $booking->setEmail($this->getReference('user-admin'));
+         $booking->setEmail($this->getReference('user-user'));
 
          $booking2 = new Booking();
-         $booking2->setNom('nom');
-         $booking2->setPrenom('prenom');
          $booking2->setSujet('sujet');
          $booking2->setCreatedAt(new \Datetime());
          $booking2->setMessage('message');
          $booking2->setEmail($this->getReference('user-user'));
 
          $booking3 = new Booking();
-         $booking3->setNom('nom');
-         $booking3->setPrenom('prenom');
          $booking3->setSujet('sujet');
          $booking3->setCreatedAt(new \Datetime());
          $booking3->setMessage('message');
          $booking3->setEmail($this->getReference('user-user2'));
 
          $booking4 = new Booking();
-         $booking4->setNom('nom');
-         $booking4->setPrenom('prenom');
          $booking4->setSujet('sujet');
          $booking4->setCreatedAt(new \Datetime());
          $booking4->setMessage('message');
          $booking4->setEmail($this->getReference('user-user3'));
 
          $booking5 = new Booking();
-         $booking5->setNom('nom');
-         $booking5->setPrenom('prenom');
          $booking5->setSujet('sujet');
          $booking5->setCreatedAt(new \Datetime());
          $booking5->setMessage('message');
          $booking5->setEmail($this->getReference('user-user4'));
 
          $booking6 = new Booking();
-         $booking6->setNom('nom');
-         $booking6->setPrenom('prenom');
          $booking6->setSujet('sujet');
          $booking6->setCreatedAt(new \Datetime());
          $booking6->setMessage('message');
