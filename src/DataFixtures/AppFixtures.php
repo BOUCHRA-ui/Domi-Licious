@@ -10,6 +10,7 @@ use App\Entity\Chef;
 use App\Entity\User;
 use App\Entity\Booking;
 use App\Entity\Commentaire;
+use App\Entity\Menu;
 
 class AppFixtures extends Fixture
 {   
@@ -23,6 +24,11 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
 
+        $menu = new Menu();
+        $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
+        $menu->setPlat('Duo de saumon sur son tartare de boeuf');
+        $menu->setDessert('Crêpe de Nutella');
+      
         $user = new User();
         $user->setNom('Kuijer');
         $user->setPrenom('Jess');       
@@ -59,7 +65,6 @@ class AppFixtures extends Fixture
         $commentaire3->setEmail($this->getReference('user-admin'));
 
         $manager->persist($commentaire3);
-        $manager->flush();
 
         $chef = new Chef();
         $chef->setNom('Baruch');
@@ -116,7 +121,7 @@ class AppFixtures extends Fixture
         $manager->persist($chef4);
         $manager->persist($chef5);
         $manager->persist($chef6);
-        $manager->flush();
+      
         $user = new User();
         $user->setEmail('test@test.com');
         $user->setRoles(['ROLE_ADMIN']);
