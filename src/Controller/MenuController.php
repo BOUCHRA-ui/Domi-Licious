@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Menu;
-use App\Form\MenuType;
+use App\Form\Menu1Type;
 use App\Repository\MenuRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class MenuController extends AbstractController
     public function new(Request $request): Response
     {
         $menu = new Menu();
-        $form = $this->createForm(MenuType::class, $menu);
+        $form = $this->createForm(Menu1Type::class, $menu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class MenuController extends AbstractController
      */
     public function edit(Request $request, Menu $menu): Response
     {
-        $form = $this->createForm(MenuType::class, $menu);
+        $form = $this->createForm(Menu1Type::class, $menu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

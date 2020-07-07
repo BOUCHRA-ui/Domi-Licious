@@ -3,8 +3,8 @@
 {% block title %}Chef index{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Nos Chefs index</h1>
-    <div class="container">
+    <h1>Chef index</h1>
+
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +13,7 @@
                 <th>Prenom</th>
                 <th>Image</th>
                 <th>Presentation</th>
-                <th>Type de cuisine</th>
+                <th>Type_de_cuisine</th>
                 <th>Menu</th>
                 <th>actions</th>
             </tr>
@@ -31,7 +31,7 @@
                 <td>{{ chef.menu }}</td>
                 <td>
                     <a href="{{ path('chef_show', {'id': chef.id}) }}">show</a>
-                    <a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a>
+                    <!-- <a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a> -->
                 </td>
             </tr>
         {% else %}
@@ -41,6 +41,6 @@
         {% endfor %}
         </tbody>
     </table>
-</div>
+
     <a href="{{ path('chef_new') }}">Create new</a>
 {% endblock %}

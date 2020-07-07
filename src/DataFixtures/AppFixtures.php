@@ -28,14 +28,16 @@ class AppFixtures extends Fixture
         $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
         $menu->setPlat('Duo de saumon sur son tartare de boeuf');
         $menu->setDessert('Crêpe de Nutella');
+
+        $manager->persist($menu);
       
         $user = new User();
-        $user->setNom('Kuijer');
-        $user->setPrenom('Jess');       
-        $user->setEmail('jessicakuijer@me.com');
+        $user->setNom('AdminNom');
+        $user->setPrenom('AdminPrenom');       
+        $user->setEmail('admin@domilicious.com');
         $user->setRoles(['ROLE_ADMIN']);
         
-        $password = $this->encoder->encodePassword($user, '684500');
+        $password = $this->encoder->encodePassword($user, 'admin');
         $user->setPassword($password);
 
         $manager->persist($user);
@@ -72,7 +74,7 @@ class AppFixtures extends Fixture
         $chef->setPresentation('presentation');
         $chef->setTypeDeCuisine('Asiatique');
         $chef->setMenu('menu 1');
-        $chef->setImage('cooking-890885_1920.jpg');
+        $chef->setImage('chef-cuisinier.jpg');
 
         $chef2 = new Chef();
         $chef2->setNom('Dupont');
@@ -124,7 +126,7 @@ class AppFixtures extends Fixture
       
         $user = new User();
         $user->setEmail('test@test.com');
-        $user->setRoles(['ROLE_ADMIN']);
+        $user->setRoles(['ROLE_USER']);
         $user->setPrenom('bouchra');
         $user->setNom('trabelsi');
 
@@ -190,8 +192,8 @@ class AppFixtures extends Fixture
         $manager->persist($user5);
         $manager->persist($user6);
       
-        $this->addReference('user-admin', $user);
-        $this->addReference('user-user', $user2);
+        $this->addReference('user-user', $user);
+        $this->addReference('user-user1', $user2);
         $this->addReference('user-user2', $user3);
         $this->addReference('user-user3', $user4);
         $this->addReference('user-user4', $user5);
@@ -203,7 +205,7 @@ class AppFixtures extends Fixture
          $booking->setSujet('sujet');
          $booking->setCreatedAt(new \Datetime());
          $booking->setMessage('message');
-         $booking->setEmail($this->getReference('user-admin'));
+         $booking->setEmail($this->getReference('user-user'));
 
          $booking2 = new Booking();
          $booking2->setNom('nom');

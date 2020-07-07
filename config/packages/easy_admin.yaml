@@ -29,5 +29,24 @@ easy_admin:
             class: App\Entity\Booking
         Chef:
             class: App\Entity\Chef
+            list:
+                fields:
+                  - id
+                  - nom
+                  - prenom
+                  - { property: 'image', type: 'image', base_path: '%app.path.chef_images%' }
+                  - presentation
+                  - type_de_cuisine
+                  - menu
+            form:
+                fields:
+                  - nom
+                  - prenom
+                  - { property: 'imageFile', type: 'vich_image' }
+                  - presentation
+                  - type_de_cuisine
+                  - menu
+        Menu:
+            class: App\Entity\Menu
         Commentaire:
             class: App\Entity\Commentaire
