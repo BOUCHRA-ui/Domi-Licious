@@ -28,9 +28,8 @@ class AppFixtures extends Fixture
         $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
         $menu->setPlat('Duo de saumon sur son tartare de boeuf');
         $menu->setDessert('Crêpe de Nutella');
-
         $manager->persist($menu);
-      
+
         $user = new User();
         $user->setNom('AdminNom');
         $user->setPrenom('AdminPrenom');       
