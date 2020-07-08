@@ -18,24 +18,9 @@ class Booking
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
-     */
-    private $nom;
-
-    /**
-     * @ORM\Column(type="string", length=30)
-     */
-    private $prenom;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $sujet;
-
-    /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private $dateReservation;
 
     /**
      * @ORM\Column(type="string", length=250)
@@ -44,60 +29,19 @@ class Booking
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="bookings")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $email;
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Menu::class, inversedBy="bookings")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $menu;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getSujet(): ?string
-    {
-        return $this->sujet;
-    }
-
-    public function setSujet(string $sujet): self
-    {
-        $this->sujet = $sujet;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $created_at): self
-    {
-        $this->created_at = $created_at;
-
-        return $this;
     }
 
     public function getMessage(): ?string
@@ -112,20 +56,43 @@ class Booking
         return $this;
     }
 
-    public function getEmail(): ?User
+    /**
+     * @return mixed
+     */
+    public function getDateReservation()
     {
-        return $this->email;
+        return $this->dateReservation;
     }
 
-    public function setEmail(?User $email): self
+    /**
+     * @param mixed $dateReservation
+     */
+    public function setDateReservation($dateReservation): void
     {
-        $this->email = $email;
+        $this->dateReservation = $dateReservation;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
 
-    public function __toString()
+    public function getMenu(): ?Menu
     {
-        return $this->email;
+        return $this->menu;
+    }
+
+    public function setMenu(?Menu $menu): self
+    {
+        $this->menu = $menu;
+
+        return $this;
     }
 }

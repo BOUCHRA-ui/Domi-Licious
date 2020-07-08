@@ -57,7 +57,7 @@ class Chef
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $type_de_cuisine;
+    private $type_cuisine;
 
     /**
      * @ORM\Column(type="text")
@@ -135,12 +135,12 @@ class Chef
 
     public function getTypeDeCuisine(): ?string
     {
-        return $this->type_de_cuisine;
+        return $this->type_cuisine;
     }
 
-    public function setTypeDeCuisine(string $type_de_cuisine): self
+    public function setTypeDeCuisine(string $type_cuisine): self
     {
-        $this->type_de_cuisine = $type_de_cuisine;
+        $this->type_cuisine = $type_cuisine;
 
         return $this;
     }

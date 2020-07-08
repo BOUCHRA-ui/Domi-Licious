@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypeCuisine{% endblock %}
+
+{% block body %}
+    <h1>Edit TypeCuisine</h1>
+
+    {{ include('type_cuisine/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_cuisine_index') }}">back to list</a>
+
+    {{ include('type_cuisine/_delete_form.html.twig') }}
+{% endblock %}
