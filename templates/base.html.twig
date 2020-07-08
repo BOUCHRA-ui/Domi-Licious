@@ -84,12 +84,10 @@
                     <li>
                         <a class="page-scroll" href="{{path('booking_new')}}">Reservation</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#">Contactez nous</a>
-					</li>
 					<li>
                         <a class="page-scroll" href="{{path('commentaire_index')}}">Livre d'or</a>
                     </li>
+                        <a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
                     <li>
                         <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
                     </li>
@@ -179,12 +177,10 @@
         {% endblock %}
 
 
-        {% block body %}
+        {% block body %}{% endblock %}
+		<!-- /Back To Top -->
         <a id='backTop'>Back To Top</a>
-	<!-- /Back To Top -->
 
-    {% endblock %}
-       
         {% block footer %}
         		<footer>
 		<div class="wrap-footer">
