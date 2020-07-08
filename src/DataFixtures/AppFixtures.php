@@ -73,7 +73,7 @@ class AppFixtures extends Fixture
         $chef->setPresentation('presentation');
         $chef->setTypeDeCuisine('Asiatique');
         $chef->setMenu('menu 1');
-        $chef->setImage('cooking-890885_1920.jpg');
+        $chef->setImage('chef-cuisinier.jpg');
 
         $chef2 = new Chef();
         $chef2->setNom('Dupont');

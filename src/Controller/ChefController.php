@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Chef;
-use App\Form\ChefType;
+use App\Form\Chef1Type;
 use App\Repository\ChefRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class ChefController extends AbstractController
     public function new(Request $request): Response
     {
         $chef = new Chef();
-        $form = $this->createForm(ChefType::class, $chef);
+        $form = $this->createForm(Chef1Type::class, $chef);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class ChefController extends AbstractController
      */
     public function edit(Request $request, Chef $chef): Response
     {
-        $form = $this->createForm(ChefType::class, $chef);
+        $form = $this->createForm(Chef1Type::class, $chef);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
