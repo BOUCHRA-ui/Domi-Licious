@@ -85,7 +85,7 @@
                         <a class="page-scroll" href="{{path('booking_index')}}">Reservation</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="contact">Contactez nous</a>
+                        <a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
                     <li>
                         <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
                     </li>
@@ -175,12 +175,10 @@
         {% endblock %}
 
 
-        {% block body %}
+        {% block body %}{% endblock %}
+		<!-- /Back To Top -->
         <a id='backTop'>Back To Top</a>
-	<!-- /Back To Top -->
 
-    {% endblock %}
-       
         {% block footer %}
         		<footer>
 		<div class="wrap-footer">
