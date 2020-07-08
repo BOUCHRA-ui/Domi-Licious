@@ -42,6 +42,11 @@ class Menu
      */
     private $chef;
 
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
     /**
      * @Vich\UploadableField(mapping="menu_images", fileNameProperty="image")
      * @var File
@@ -113,6 +118,18 @@ class Menu
     public function setChef(?Chef $chef): self
     {
         $this->chef = $chef;
+
+        return $this;
+    }
+
+        public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

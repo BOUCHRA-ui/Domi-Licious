@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeCuisine index{% endblock %}
+
+{% block body %}
+    <h1>TypeCuisine index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_cuisine in type_cuisines %}
+            <tr>
+                <td>{{ type_cuisine.id }}</td>
+                <td>{{ type_cuisine.title }}</td>
+                <td>{{ type_cuisine.description }}</td>
+                <td>{{ type_cuisine.image }}</td>
+                <td>
+                    <a href="{{ path('type_cuisine_show', {'id': type_cuisine.id}) }}">show</a>
+                    <a href="{{ path('type_cuisine_edit', {'id': type_cuisine.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_cuisine_new') }}">Create new</a>
+{% endblock %}

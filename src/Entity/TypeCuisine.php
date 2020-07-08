@@ -6,6 +6,8 @@ use App\Repository\TypeCuisineRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=TypeCuisineRepository::class)
@@ -32,7 +34,7 @@ class TypeCuisine
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $photo;
+    private $image;
 
     /**
      * @ORM\OneToMany(targetEntity=Chef::class, mappedBy="typeCuisine")
@@ -43,6 +45,7 @@ class TypeCuisine
      * @ORM\OneToMany(targetEntity=Menu::class, mappedBy="typeCuisine", orphanRemoval=true)
      */
     private $menus;
+    
 
     public function __construct()
     {
@@ -81,12 +84,12 @@ class TypeCuisine
 
     public function getPhoto(): ?string
     {
-        return $this->photo;
+        return $this->image;
     }
 
-    public function setPhoto(string $photo): self
+    public function setPhoto(string $image): self
     {
-        $this->photo = $photo;
+        $this->image = $image;
 
         return $this;
     }
