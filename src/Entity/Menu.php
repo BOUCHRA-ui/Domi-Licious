@@ -64,6 +64,11 @@ class Menu
      */
     private $chef;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
@@ -193,6 +198,18 @@ class Menu
     public function setChef(?Chef $chef): self
     {
         $this->chef = $chef;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
