@@ -66,7 +66,7 @@
 
 				</button>
 				<a class="navbar-brand" href="#">
-					<img src="images/logo2.png" class="hidden-xs" alt="">
+					<img src="{{ asset('images/logo2.png') }}" class="hidden-xs" alt="">
 					<h3 class="visible-xs">Domi'Licious</h3>
 				</a>
 			</div>
@@ -85,27 +85,47 @@
                         <a class="page-scroll" href="{{path('booking_new')}}">Reservation</a>
                     </li>
 					<li>
+						<a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
+					</li>
+					<li>
                         <a class="page-scroll" href="{{path('commentaire_index')}}">Livre d'or</a>
                     </li>
-                        <a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
                     <li>
                         <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
                     </li>
+
+					{% if is_granted('ROLE_ADMIN') %}
 					<li>
+                    <button type="button" class="btn btn-dark">
+                            <a href="{{path('easyadmin')}}" target="_blank">Espace admin</a>
+                    </button>
+                    
+					</li>
+					{% endif %}
+					
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					<em>Bonjour, {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a href="{{path('app_logout')}}">Se déconnecter</a>
+					
+					<li>
+					<button type="button" class="btn btn-dark"><a href="{{path('app_logout')}}">Se déconnecter</a></button>
+					</li>
+					<li>
+					<em>Bonjour, {{ app.user.prenom }} - {{ app.user.nom }}</em>
+					</li>
 					{% else %}
+					 
 					 <button type="button" class="btn btn-dark">
                          <a href="{{path('app_login')}}">Se connecter</a> 
                      </button>
                      <button type="button" class="btn btn-dark">
                          <a href="{{path('app_register')}}">S'inscrire</a>
 					</button>
+					</li><br>
 					<em>Bonjour, visiteur!</em>
-					{% endif %}
-
-
 					</li>
+					{% endif %}
+					
+					
+					
 
 				</ul>
 			</div>
