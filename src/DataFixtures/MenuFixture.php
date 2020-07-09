@@ -34,6 +34,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setImage('s1.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
+            $menu->setPrice(200);
 
             $manager->persist($menu);
 
@@ -44,6 +45,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu2->setImage('s2.jpg');
             $menu2->setTypeCuisine($typeCuisine);
             $menu2->setChef($chef);
+            $menu->setPrice(200);
 
             $manager->persist($menu);
 
@@ -54,6 +56,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setImage('s3.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
+            $menu->setPrice(200);
 
             $manager->persist($menu);
 
@@ -64,6 +67,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setImage('s4.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
+            $menu->setPrice(200);
 
             $manager->persist($menu);
 
@@ -74,6 +78,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setImage('s5.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
+            $menu->setPrice(200);
 
             $manager->persist($menu);
 
@@ -84,6 +89,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setImage('s6.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
+            $menu->setPrice(200);
 
             $manager->persist($menu);
      

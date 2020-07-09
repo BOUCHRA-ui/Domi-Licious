@@ -13,6 +13,7 @@
                 <th>Plat</th>
                 <th>Dessert</th>
                 <th>actions</th>
+                <th>reserver</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,7 @@
                     <a href="{{ path('menu_show', {'id': menu.id}) }}">show</a>
                     <a href="{{ path('menu_edit', {'id': menu.id}) }}">edit</a>
                 </td>
+                <td><a href="{{ path('booking_new', {'id': menu.id}) }}">Réserver</a></td>
             </tr>
         {% else %}
             <tr>
@@ -34,6 +36,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('menu_new') }}">Create new</a>
 {% endblock %}
