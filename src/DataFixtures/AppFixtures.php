@@ -223,7 +223,6 @@ class AppFixtures extends Fixture
 
          for ($count3 = 1; $count3< 20; $count3++) {
          $booking = new Booking();
-         $booking->setUser($user2);
          $booking->setDateReservation(new Datetime());
          $booking->setMessage('message');
          $booking->setMenu($menu);
@@ -266,7 +265,6 @@ class AppFixtures extends Fixture
          $manager->persist($booking5);
          $manager->persist($booking6);
       
-         $manager->persist($booking);
         }
 
          $manager->flush();

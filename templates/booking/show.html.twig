@@ -12,14 +12,8 @@
                 <td>{{ booking.id }}</td>
             </tr>
             <tr>
-
-            <tr>
-                <th>Sujet</th>
-                <td>{{ booking.sujet }}</td>
-            </tr>
-            <tr>
-                <th>Dae de réservation</th>
-                <td>{{ booking.createdAt ? booking.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <th>DateReservation</th>
+                <td>{{ booking.dateReservation ? booking.dateReservation|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>Message</th>

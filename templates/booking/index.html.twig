@@ -3,15 +3,13 @@
 {% block title %}Booking index{% endblock %}
 
 {% block body %}
-
-
     <h1>Booking index</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Sujet</th>
-                <th>Date de réservation</th>
+                <th>Id</th>
+                <th>DateReservation</th>
                 <th>Message</th>
                 <th>actions</th>
             </tr>
@@ -19,9 +17,8 @@
         <tbody>
         {% for booking in bookings %}
             <tr>
-
-                <td>{{ booking.sujet }}</td>
-                <td>{{ booking.createdAt ? booking.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.dateReservation ? booking.dateReservation|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ booking.message }}</td>
                 <td>
                     <a href="{{ path('booking_show', {'id': booking.id}) }}">show</a>
@@ -30,12 +27,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ path('booking_new') }}">Create new</a>
-
 {% endblock %}

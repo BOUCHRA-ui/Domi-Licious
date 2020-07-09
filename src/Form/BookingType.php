@@ -13,7 +13,7 @@ class BookingType extends AbstractType
     {
         $builder
             ->add('dateReservation')
-            ->add('created_at')
+            ->add('message')
             ->add('user')
             ->add('menu')
      

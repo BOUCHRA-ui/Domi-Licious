@@ -3,17 +3,43 @@
 {% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-sm-push-3">
-                <h1 class="text-center">Contactez-nous</h1>
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">
-                        {{ message }}
+    <div id="page-content" class="archives-page">
+		<div class="container">
+			<div class="row">
+                <div id="main-content" class="col-md-8">
+					<article class="contact">
+						<div class="art-header">
+							<h2 class="center">Contactez-nous</h2>
+						</div>
+						    <div class="art-content">
+                                <div id="contact_form" id="ff">
+               
+                                {% for message in app.flashes('success') %}
+                                    <div class="alert alert-success">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+
+                                {{ form(form) }}
+
+                                </div>
+                            </div>
+						</div>
+					</article>
+                
+                <div id="sidebar" class="col-md-4">
+					<div class="widget wid-about">
+                        <div class="heading">
+                            <h4>A propos de nous</h4>
+                        </div>
+						<div class="content">
+							<img src="{{ asset('images/about2.jpg') }}" />
+							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+						</div>
                     </div>
-                {% endfor %}
-                {{ form(form) }}
+                </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
