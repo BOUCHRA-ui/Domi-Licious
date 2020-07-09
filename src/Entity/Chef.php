@@ -156,4 +156,36 @@ class Chef
 
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeCuisine()
+    {
+        return $this->type_cuisine;
+    }
+
+    /**
+     * @param mixed $type_cuisine
+     */
+    public function setTypeCuisine($type_cuisine): void
+    {
+        $this->type_cuisine = $type_cuisine;
+    }
 }
