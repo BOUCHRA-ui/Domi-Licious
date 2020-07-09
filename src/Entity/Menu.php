@@ -192,4 +192,8 @@ class Menu
 
         return $this;
     }
+    public function __toString(): ?string
+    {
+        return '';
+    }
 }

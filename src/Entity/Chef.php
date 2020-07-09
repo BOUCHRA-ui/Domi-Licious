@@ -44,7 +44,7 @@ class Chef
     private $imageFile;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", )
      * @var \DateTime
      */
     private $updatedAt;
@@ -133,12 +133,12 @@ class Chef
         return $this;
     }
 
-    public function getTypeDeCuisine(): ?string
+    public function getTypeCuisine(): ?string
     {
         return $this->type_cuisine;
     }
 
-    public function setTypeDeCuisine(string $type_cuisine): self
+    public function setTypeCuisine(string $type_cuisine): self
     {
         $this->type_cuisine = $type_cuisine;
 

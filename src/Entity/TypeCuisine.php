@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Entity\Chef;
 
 /**
  * @ORM\Entity(repositoryClass=TypeCuisineRepository::class)
@@ -155,4 +156,6 @@ class TypeCuisine
 
         return $this;
     }
+ 
+
 }
