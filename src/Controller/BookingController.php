@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\Menu;
 use App\Form\Booking1Type;
 use App\Repository\BookingRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,15 +28,27 @@ class BookingController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="booking_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="booking_new", methods={"GET","POST"}, defaults={"id"="1"})
+     * @IsGranted("ROLE_USER")
+     * @param Menu $menu
+     * @param Request $request
+     * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Menu $menu = null, Request $request): Response
     {
+
         $booking = new Booking();
+        $booking->setMenu($menu);
+        $booking->setUser($this->getUser());
+
         $form = $this->createForm(Booking1Type::class, $booking);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            # TODO : Vérification de disponibilité du chef
+            # Le plus simple, vérifier s'il n'existe pas déjà une reservation a cette date.
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($booking);
             $entityManager->flush();
