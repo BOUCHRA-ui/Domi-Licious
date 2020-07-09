@@ -196,20 +196,4 @@ class Chef
     {
         $this->updatedAt = $updatedAt;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getTypeCuisine()
-    {
-        return $this->type_cuisine;
-    }
-
-    /**
-     * @param mixed $type_cuisine
-     */
-    public function setTypeCuisine($type_cuisine): void
-    {
-        $this->type_cuisine = $type_cuisine;
-    }
 }
