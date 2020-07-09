@@ -20,7 +20,7 @@ class Commentaire
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=256)
      */
     private $titre;
 
@@ -103,9 +103,6 @@ class Commentaire
         return $this->image;
     }
 
-    public function __toString()
-    {
-        return $this->titre;
-    }
+ 
 }
 
