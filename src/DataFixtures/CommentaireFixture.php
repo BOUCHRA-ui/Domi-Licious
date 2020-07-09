@@ -24,9 +24,6 @@ class CommentaireFixture extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        
-        $user = new User();
-        
 
         $commentaire1 = new Commentaire();
         $commentaire1->setTitre('titre');

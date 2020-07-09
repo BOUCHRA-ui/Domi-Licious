@@ -36,12 +36,6 @@ class Menu
      */
     private $dessert;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Chef::class, inversedBy="menu")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $chef;
-
         /**
      * @ORM\Column(type="string", length=255)
      */
@@ -63,6 +57,12 @@ class Menu
      * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="menu")
      */
     private $bookings;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Chef::class, inversedBy="menus")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $chef;
 
     public function __construct()
     {
@@ -109,19 +109,7 @@ class Menu
 
         return $this;
     }
-
-    public function getChef(): ?Chef
-    {
-        return $this->chef;
-    }
-
-    public function setChef(?Chef $chef): self
-    {
-        $this->chef = $chef;
-
-        return $this;
-    }
-
+    
         public function getImage(): ?string
     {
         return $this->image;
@@ -195,5 +183,17 @@ class Menu
     public function __toString(): ?string
     {
         return '';
+    }
+
+    public function getChef(): ?Chef
+    {
+        return $this->chef;
+    }
+
+    public function setChef(?Chef $chef): self
+    {
+        $this->chef = $chef;
+
+        return $this;
     }
 }

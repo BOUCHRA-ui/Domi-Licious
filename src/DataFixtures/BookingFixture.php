@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use DateTime;
 use DateTimeImmutable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -12,7 +13,7 @@ use App\Entity\Booking;
 use App\Entity\Menu;
 use App\Entity\User;
 
-class BookingFixture extends Fixture
+class BookingFixture extends Fixture implements DependentFixtureInterface
 
 {   
     private $encoder;
@@ -25,19 +26,19 @@ class BookingFixture extends Fixture
     public function load(ObjectManager $manager)
     {
           
-         $user = new User();
-         $user2 = new User();
-         $user3 = new User();
-         $user4 = new User();
-         $user5 = new User();
-         $user6 = new User();
+         $user = $this->getReference(UserFixture::USER_REFERENCE);
+         $user2 = $this->getReference(UserFixture::USER_REFERENCE2);
+         $user3 = $this->getReference(UserFixture::USER_REFERENCE3);
+         $user4 = $this->getReference(UserFixture::USER_REFERENCE4);
+         $user5 = $this->getReference(UserFixture::USER_REFERENCE5);
+         $user6 = $this->getReference(UserFixture::USER_REFERENCE6);
 
-         $menu = new Menu();
-         $menu2 = new Menu();
-         $menu3 = new Menu();
-         $menu4 = new Menu();
-         $menu5 = new Menu();
-         $menu6 = new Menu();
+         $menu = $this->getReference('menu');
+         $menu2 = $this->getReference('menu');
+         $menu3 = $this->getReference('menu');
+         $menu4 = $this->getReference('menu');
+         $menu5 = $this->getReference('menu');
+         $menu6 = $this->getReference('menu');
         
          
          $booking = new Booking();
@@ -90,6 +91,7 @@ class BookingFixture extends Fixture
     {
         return array(
             UserFixture::class,
+            MenuFixture::class,
         );
     }
 }

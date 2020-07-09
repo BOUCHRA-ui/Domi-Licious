@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ChefRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -44,25 +46,24 @@ class Chef
     private $imageFile;
 
     /**
-     * @ORM\Column(type="datetime", )
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $presentation;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\ManyToOne(targetEntity=TypeCuisine::class, inversedBy="chefs")
      */
-    private $type_cuisine;
+    private $typeCuisine;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\OneToMany(targetEntity=Menu::class, mappedBy="chef", orphanRemoval=true)
      */
-    private $menu;
+    private $menus;
+
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -133,27 +134,52 @@ class Chef
         return $this;
     }
 
-    public function getTypeCuisine(): ?string
+    /**
+     * @return mixed
+     */
+    public function getTypeCuisine()
     {
-        return $this->type_cuisine;
+        return $this->typeCuisine;
     }
 
-    public function setTypeCuisine(string $type_cuisine): self
+    /**
+     * @param mixed $typeCuisine
+     */
+    public function setTypeCuisine($typeCuisine): void
     {
-        $this->type_cuisine = $type_cuisine;
+        $this->typeCuisine = $typeCuisine;
+    }
+
+    /**
+     * @return Collection|Menu[]
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menu $menu): self
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus[] = $menu;
+            $menu->setChef($this);
+        }
 
         return $this;
     }
 
-    public function getMenu(): ?string
+    public function removeMenu(Menu $menu): self
     {
-        return $this->menu;
-    }
-
-    public function setMenu(string $menu): self
-    {
-        $this->menu = $menu;
+        if ($this->menus->contains($menu)) {
+            $this->menus->removeElement($menu);
+            // set the owning side to null (unless already changed)
+            if ($menu->getChef() === $this) {
+                $menu->setChef(null);
+            }
+        }
 
         return $this;
     }
+
+
 }

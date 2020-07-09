@@ -67,11 +67,9 @@ class TypeCuisineFixture extends Fixture
 
       
          $manager->flush();
+
+         $this->addReference('type-cuisine', $typeCuisine);
+
     }
-    public function getDependencies()
-    {
-        return array(
-            UserFixture::class,
-        );
-    }
+
 }

@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -11,7 +12,7 @@ use App\Entity\Chef;
 use App\Entity\Menu;
 use App\Entity\TypeCuisine;
 
-class MenuFixture extends Fixture
+class MenuFixture extends Fixture implements DependentFixtureInterface
 {   
     private $encoder;
 
@@ -22,8 +23,8 @@ class MenuFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $chef= new Chef();
-        $typeCuisine = new TypeCuisine();
+            $chef = $this->getReference('chef');
+            $typeCuisine = $this->getReference('type-cuisine');
 
     
             $menu = new Menu();
@@ -86,14 +87,23 @@ class MenuFixture extends Fixture
 
             $manager->persist($menu);
      
-      
 
          $manager->flush();
+
+         $this->addReference('menu', $menu);
     }
+
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
+     *
+     * @return class-string[]
+     */
     public function getDependencies()
     {
         return array(
-            UserFixture::class,
+            ChefFixture::class,
+            TypeCuisineFixture::class,
         );
     }
 }
