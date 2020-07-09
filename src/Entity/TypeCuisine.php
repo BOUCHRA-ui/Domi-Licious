@@ -6,8 +6,6 @@ use App\Repository\TypeCuisineRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=TypeCuisineRepository::class)
@@ -37,20 +35,20 @@ class TypeCuisine
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity=Chef::class, mappedBy="typeCuisine")
-     */
-    private $chefs;
-
-    /**
      * @ORM\OneToMany(targetEntity=Menu::class, mappedBy="typeCuisine", orphanRemoval=true)
      */
     private $menus;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Chef::class, mappedBy="typeCuisine")
+     */
+    private $chefs;
     
 
     public function __construct()
     {
-        $this->chefs = new ArrayCollection();
         $this->menus = new ArrayCollection();
+        $this->chefs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,37 +93,6 @@ class TypeCuisine
     }
 
     /**
-     * @return Collection|Chef[]
-     */
-    public function getChefs(): Collection
-    {
-        return $this->chefs;
-    }
-
-    public function addChef(Chef $chef): self
-    {
-        if (!$this->chefs->contains($chef)) {
-            $this->chefs[] = $chef;
-            $chef->setTypeCuisine($this);
-        }
-
-        return $this;
-    }
-
-    public function removeChef(Chef $chef): self
-    {
-        if ($this->chefs->contains($chef)) {
-            $this->chefs->removeElement($chef);
-            // set the owning side to null (unless already changed)
-            if ($chef->getTypeCuisine() === $this) {
-                $chef->setTypeCuisine(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Menu[]
      */
     public function getMenus(): Collection
@@ -155,4 +122,37 @@ class TypeCuisine
 
         return $this;
     }
+
+    /**
+     * @return Collection|Chef[]
+     */
+    public function getChefs(): Collection
+    {
+        return $this->chefs;
+    }
+
+    public function addChef(Chef $chef): self
+    {
+        if (!$this->chefs->contains($chef)) {
+            $this->chefs[] = $chef;
+            $chef->setTypeCuisine($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChef(Chef $chef): self
+    {
+        if ($this->chefs->contains($chef)) {
+            $this->chefs->removeElement($chef);
+            // set the owning side to null (unless already changed)
+            if ($chef->getTypeCuisine() === $this) {
+                $chef->setTypeCuisine(null);
+            }
+        }
+
+        return $this;
+    }
+ 
+
 }

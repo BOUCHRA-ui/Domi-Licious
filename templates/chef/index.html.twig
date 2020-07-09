@@ -12,7 +12,7 @@
                 {% for chef in chefs %}
 				<div class="row heading">
                	    <div class="col-lg-12">	
-	                    <h2>Cuisine : {{ chef.typeDeCuisine }}</h2>
+	                    <h2>Cuisine : {{ chef.typeCuisine }}</h2>
                     	
 				</div>
 				<div class="row center">
@@ -67,7 +67,7 @@
                 <td><img src="{{ asset('uploads/images/chefs/')}}{{ chef.image }}" class="image-chef">
                 </td>
                 <td>{{ chef.presentation }}</td>
-                <td>{{ chef.typeDeCuisine }}</td>
+                <td>{{ chef.typeCuisine }}</td>
                 <td>{{ chef.menu }}</td>
                 <td>
                     <a href="{{ path('chef_show', {'id': chef.id}) }}">show</a>
