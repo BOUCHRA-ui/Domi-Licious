@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -23,7 +24,6 @@ class TypeCuisineFixture extends Fixture
 
     public function load(ObjectManager $manager)
     {
-            $chef = $this->getReference('chef');
             $typeCuisine = new TypeCuisine();
             $typeCuisine->setTitle('orientale');
             $typeCuisine->setDescription('description');
@@ -31,7 +31,6 @@ class TypeCuisineFixture extends Fixture
 
             $manager->persist($typeCuisine);
 
-            $chef2 = $this->getReference('chef');
             $typeCuisine2 = new TypeCuisine();
             $typeCuisine2->setTitle('japonnais');
             $typeCuisine2->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
@@ -39,7 +38,6 @@ class TypeCuisineFixture extends Fixture
 
             $manager->persist($typeCuisine2);
 
-            $chef3 = $this->getReference('chef');
             $typeCuisine3 = new TypeCuisine();
             $typeCuisine3->setTitle('asiatique');
             $typeCuisine3->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
@@ -47,7 +45,6 @@ class TypeCuisineFixture extends Fixture
 
             $manager->persist($typeCuisine3);
 
-            $chef4 = $this->getReference('chef');
             $typeCuisine4 = new TypeCuisine();
             $typeCuisine4->setTitle('francais');
             $typeCuisine4->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
@@ -55,7 +52,6 @@ class TypeCuisineFixture extends Fixture
 
             $manager->persist($typeCuisine4);
 
-            $chef5 = $this->getReference('chef');
             $typeCuisine5 = new TypeCuisine();
             $typeCuisine5->setTitle('italien');
             $typeCuisine5->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
@@ -63,7 +59,6 @@ class TypeCuisineFixture extends Fixture
 
             $manager->persist($typeCuisine5);
 
-            $chef6 = $this->getReference('chef');
             $typeCuisine6 = new TypeCuisine();
             $typeCuisine6->setTitle('mexicain');
             $typeCuisine6->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
@@ -74,8 +69,12 @@ class TypeCuisineFixture extends Fixture
       
          $manager->flush();
 
-         $this->addReference('type-cuisine', $typeCuisine);
+         $this->addReference('type-orientale', $typeCuisine);
+         $this->addReference('type-japonnais', $typeCuisine2);
+         $this->addReference('type-asiatique', $typeCuisine3);
+         $this->addReference('type-francais', $typeCuisine4);
+         $this->addReference('type-italien', $typeCuisine5);
+         $this->addReference('type-mexicain', $typeCuisine6);
 
     }
-
 }

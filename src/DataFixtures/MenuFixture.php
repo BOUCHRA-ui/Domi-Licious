@@ -30,7 +30,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $chef5 = $this->getReference('chef');
             $chef6 = $this->getReference('chef');
       
-            $typeCuisine = $this->getReference('type-cuisine');
+            $typeCuisine = $this->getReference('type-asiatique');
 
            
             $menu = new Menu();
