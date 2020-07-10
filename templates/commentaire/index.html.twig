@@ -3,37 +3,29 @@
 {% block title %}Commentaire index{% endblock %}
 
 {% block body %}
-    <h1>Commentaire index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Message</th>
-                <th>Created_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for commentaire in commentaires %}
-            <tr>
-                <td>{{ commentaire.id }}</td>
-                <td>{{ commentaire.titre }}</td>
-                <td>{{ commentaire.message }}</td>
-                <td>{{ commentaire.createdAt ? commentaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('commentaire_show', {'id': commentaire.id}) }}">show</a>
-                    <a href="{{ path('commentaire_edit', {'id': commentaire.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+ <section class="box-content box-3" id="staff">
+        <div class="container">
+            {% for commentaire in commentaires %}
+            <div class="row heading">
+             <div class="jumbotron">
+                <div class="col-lg-12">
+                    <h2>{{ commentaire.titre }}, {{ commentaire.createdAt ? commentaire.createdAt|date('d-m-Y') : '' }}</h2>
+                </div>
+                <div class="row center">
+                    
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h5>{{ commentaire.message }}</h5>
+                
+                        </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+                 
+            </div>
+        </div>
+    </section>
 
-    <a href="{{ path('commentaire_new') }}">Create new</a>
 {% endblock %}

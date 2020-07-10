@@ -1,24 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Booking{% endblock %}
+            {% block title %}New Booking{% endblock %}
 
-{% block body %}
+        {% block body %}
 
-    <div class="container">
-        <h1>Réservez votre menu</h1>
-        <ul>
-            <li><strong>Entrée :</strong>{{ booking.menu.entree }}</li>
-            <li><strong>Plat :</strong>{{ booking.menu.plat }}</li>
-            <li><strong>Dessert :</strong>{{ booking.menu.dessert }}</li>
-        </ul>
-        <h3>Votre Chef</h3>
-        <p>{{ booking.menu.chef.prenom }} {{ booking.menu.chef.nom }}</p>
-        <h3>Tarif</h3>
-        <p>{{ booking.menu.price }} &euro;</p>
+            <div class="container">
+                <h1>Réservez votre menu</h1>
+                <ul>
+                    <li><strong>Entrée :</strong>{{ booking.menu.entree }}</li>
+                    <li><strong>Plat :</strong>{{ booking.menu.plat }}</li>
+                    <li><strong>Dessert :</strong>{{ booking.menu.dessert }}</li>
+                </ul>
+                <h3>Votre Chef</h3>
+                <p>{{ booking.menu.chef.prenom }} {{ booking.menu.chef.nom }}</p>
+                <h3>Tarif</h3>
+                <p>{{ booking.menu.price }} &euro;</p>
 
-        {{ include('booking/_form.html.twig') }}
+                {{ include('booking/_form.html.twig') }}
 
-        <a href="{{ path('booking_index') }}">back to list</a>
-
-    </div>
-{% endblock %}
+                <a href="{{ path('booking_index') }}">back to list</a>
+                <a href="{{ path('booking_calendar') }}">Voir le calendrier</a>
+            </div>
+        
+        {% endblock %}
+       
