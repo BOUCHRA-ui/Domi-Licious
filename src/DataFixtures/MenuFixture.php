@@ -28,7 +28,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
 
     
             $menu = new Menu();
-            $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
+            $menu->setEntree('Salade de concombre sur son lit d\'Ananas');
             $menu->setPlat('Duo de saumon sur son tartare de boeuf');
             $menu->setDessert('Crêpe de Nutella');
             $menu->setImage('s1.jpg');
@@ -39,9 +39,9 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($menu);
 
             $menu2 = new Menu();
-            $menu2->setEntree('Nems au creevettes');
+            $menu2->setEntree('Nems aux crevettes');
             $menu2->setPlat('Spagettis bolognaise');
-            $menu2->setDessert('glaces');
+            $menu2->setDessert('Glaces');
             $menu2->setImage('s2.jpg');
             $menu2->setTypeCuisine($typeCuisine);
             $menu2->setChef($chef);
@@ -50,9 +50,9 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($menu);
 
             $menu = new Menu();
-            $menu->setEntree('huitres');
-            $menu->setPlat('suamon au riz');
-            $menu->setDessert('cremme brulée');
+            $menu->setEntree('Huitres');
+            $menu->setPlat('Saumon au riz');
+            $menu->setDessert('crême brulée');
             $menu->setImage('s3.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
@@ -61,8 +61,8 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($menu);
 
             $menu = new Menu();
-            $menu->setEntree('salade de tomate et mozzarella');
-            $menu->setPlat('chou farci au crevette');
+            $menu->setEntree('Salade de tomates fraîches et mozzarella');
+            $menu->setPlat('Choux farcis aux crevette');
             $menu->setDessert('foret noir');
             $menu->setImage('s4.jpg');
             $menu->setTypeCuisine($typeCuisine);
