@@ -35,7 +35,7 @@ class TypeCuisineFixture extends Fixture
             $typeCuisine2->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
             $typeCuisine2->setPhoto('s2.jpg');
 
-            $manager->persist($typeCuisine);
+            $manager->persist($typeCuisine2);
 
             $typeCuisine3 = new TypeCuisine();
             $typeCuisine3->setTitle('asiatique');

@@ -21,7 +21,13 @@
                             <img src="{{ asset('uploads/images/chefs/') }}{{ chef.image }}" class="image-chef">
                         </div>
                         <ul class="list-inline social-buttons">
-                            <!-- Lien icon bouton vers le menu + lien icon bouton booking -->
+                            <!-- Lien icon bouton vers le menu + lien icon bouton booking TEST-->
+
+                            <li>
+                           <button><a href="{{ path('booking_new', {'id': chef.id}) }}">Réserver son menu</a></button>
+                            </li>
+
+                            <!-- FIN TEST -->
                             <li><a href="{{ path('chef_show', {'id': chef.id}) }}"><i class="fa fa-search"></i></a>
                             </li>
 
