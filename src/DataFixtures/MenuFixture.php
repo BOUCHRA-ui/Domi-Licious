@@ -29,11 +29,10 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $chef4 = $this->getReference('chef');
             $chef5 = $this->getReference('chef');
             $chef6 = $this->getReference('chef');
-
-
+      
             $typeCuisine = $this->getReference('type-cuisine');
 
-    
+           
             $menu = new Menu();
             $menu->setEntree('Carpaccio de boeuf sur fond de roquette OU Foie gras aux poires et aux marrons ');
             $menu->setPlat('Cuissot de coq au vin pomme noisettes OU Magret en croute et légumes oubliés');
@@ -44,7 +43,6 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setPrice(200);
 
             $manager->persist($menu);
-
 
             $menu2 = new Menu();
             $menu2->setEntree('Salade mexicaine OU Fajitas de camarone');
@@ -99,8 +97,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu6->setChef($chef6);
             $menu6->setPrice(200);
 
-            $manager->persist($menu6);
-     
+            $manager->persist($menu6);     
 
          $manager->flush();
 

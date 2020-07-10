@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Free Bootstrap Themes designed by 365bootstrap.com" />
-    <meta name="author" content="www.365bootstrap.com" />
-	<title>{% block title %}DomiLicious!{% endblock %}</title>
+    <meta name="description" content="Projet Domilicious 2020 - promo Noisy-le-sec WID93 Social Builder Webforce3" />
+    <meta name="author" content="Bouchra Trabelsi, Almarine Grady, Mounia Jafjaf, Jessica Kuijer" />
+	<title>{% block title %}DomiLicious - Votre chef à domicile{% endblock %}</title>
 	
 	{% block stylesheets %}
 	 <!-- Bootstrap Core CSS -->
@@ -43,6 +43,9 @@
 			});
 	</script>
 
+	<!-- QUANTCAST TAG script -->
+	
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,16 +68,13 @@
 					<span class="icon-bar"></span>
 
 				</button>
-				<a class="navbar-brand" href="#">
-					<img src="{{ asset('images/logo2.png') }}" class="hidden-xs" alt="">
+				<a class="navbar-brand" href="{{path('accueil')}}">
+					<img src="{{ asset('images/logo2.png') }}" class="hidden-xs" alt="logo domilicious">
 					<h3 class="visible-xs">Domi'Licious</h3>
 				</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-                        <a class="page-scroll" href="{{path('accueil')}}">Accueil</a>
-                    </li>
 					<li>
                         <a class="page-scroll" href="{{path('chef_index')}}">Chefs</a>
                     </li>
@@ -82,9 +82,6 @@
                         <a class="page-scroll" href="{{path('menu_index')}}">Menus</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{path('booking_new')}}">Reservation</a>
-                    </li>
-					<li>
 						<a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
 					</li>
 					<li>
@@ -94,33 +91,33 @@
                         <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
                     </li>
 
+										
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					
+					<em class="auth">Bonjour, {{ app.user.prenom }} - {{ app.user.nom }}</em>
+					 || 
+					
+					<a href="{{path('app_logout')}}"><img src="{{ asset('images/exit.png') }}" alt="se déconnecter"></a>
+					
+					{% else %}
+					                     
+                    <button type="button" class="btn btn-info">
+                         <a href="{{path('app_register')}}">Je m'inscris !</a>
+					</button>
+
+					|| <a href="{{path('app_login')}}"><img src="{{ asset('images/connect.png') }}" alt="connexion"></a>
+
+					</li><br>
+					<em>Bonjour, visiteur!</em>
+					</li>
+					
+					{% endif %}
 					{% if is_granted('ROLE_ADMIN') %}
 					<li>
                     <button type="button" class="btn btn-dark">
                             <a href="{{path('easyadmin')}}" target="_blank">Espace admin</a>
                     </button>
                     
-					</li>
-					{% endif %}
-					
-					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-					
-					<li>
-					<button type="button" class="btn btn-dark"><a href="{{path('app_logout')}}">Se déconnecter</a></button>
-					</li>
-					<li>
-					<em>Bonjour, {{ app.user.prenom }} - {{ app.user.nom }}</em>
-					</li>
-					{% else %}
-					 
-					 <button type="button" class="btn btn-dark">
-                         <a href="{{path('app_login')}}">Se connecter</a> 
-                     </button>
-                     <button type="button" class="btn btn-dark">
-                         <a href="{{path('app_register')}}">S'inscrire</a>
-					</button>
-					</li><br>
-					<em>Bonjour, visiteur!</em>
 					</li>
 					{% endif %}
 					
@@ -195,53 +192,50 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-footer footer-1">
-						<div class="footer-heading"><h4>Partners</h4></div>
+						<div class="footer-heading"><h4>Langages</h4></div>
 						<div class="content">
 							<div class="row">
 								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/15.jpg')}}" /></a>
+									<a href="#"><img src="{{ asset('images/symfony.png')}}" /></a>
 								</div>
 								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/16.jpg')}}" /></a>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/17.jpg')}}" /></a>
-								</div>
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/18.jpg')}}" /></a>
+									<a href="#"><img src="{{ asset('images/htmlcss.png')}}" /></a>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/19.jpg')}}" /></a>
+									<a href="#"><img src="{{ asset('images/php.png')}}" /></a>
 								</div>
 								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/20.jpg')}}" /></a>
+									<a href="#"><img src="{{ asset('images/jquery.png')}}" /></a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<a href="#"><img src="{{ asset('images/bootstrap.png')}}" /></a>
 								</div>
 							</div>
 							
 						</div>
 					</div>
 					<div class="col-md-4 col-footer footer-2">
-						<div class="footer-heading"><h4>About Us</h4></div>
+						<div class="footer-heading"><h4>A propos</h4></div>
 						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad</p>
+							<p>Domilicious est un projet collectif de fin de formation Webforce3 et qui a pour objectif de proposer la reservation d'un chef à domicile selon un menu pré-établi.</p>
 						</div>
 					</div>
 					<div class="col-md-4 col-footer footer-3">
 						<div class="footer-heading"><h4>Labels</h4></div>
 						<div class="content">
 							<ul>
-								<li><a href="#">Foods</a></li>
+								<li><a href="#">Food</a></li>
 								<li><a href="#">Restaurant</a></li>
 								<li><a href="#">Chefs</a></li>
 								<li><a href="#">Menus</a></li>
 								<li><a href="#">New Food</a></li>
-								<li><a href="#">Consectetuer</a></li>
-								<li><a href="#">Tincidunt</a></li>
-								<li><a href="#">Laoreet</a></li>
+								<li><a href="#">domicile</a></li>
+								<li><a href="#">Professionnels</a></li>
+								<li><a href="#">Domilicious</a></li>
 							</ul>
 						</div>
 					</div>
@@ -254,7 +248,7 @@
 		<div class="wrap-footer">
 			<div class="clearfix">
 				<div class="col-md-6 col-md-offset-3">
-					<p>Copyright 2020 - <a href="{{ asset('http://www.365bootstrap.com')}}" target="_blank" rel="nofollow">Bootstrap Themes</a> Designed by 365Bootstrap.com</p>
+					<p>Copyrights 2020 - Domilicious - Bouchra Trabelsi, Almarine Grady, Mounia Jafjaf, Jessica Kuijer  </p>
 				</div>
 			</div>	
 		</div>
