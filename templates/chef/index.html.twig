@@ -20,9 +20,19 @@
                         <div class="wrap-img">
                             <img src="{{ asset('uploads/images/chefs/') }}{{ chef.image }}" class="image-chef">
                         </div>
-            
-                           <button class="btn btn-secondary"><a href="{{ path('booking_new', {'id': chef.id}) }}">Réserver son menu</a></button>
-                            
+                        <ul class="list-inline social-buttons">
+                            <!-- Lien icon bouton vers le menu + lien icon bouton booking TEST-->
+
+                            <li>
+                           <button><a href="{{ path('booking_new', {'id': chef.id}) }}">Réserver son menu</a></button>
+                            </li>
+
+                            <!-- FIN TEST -->
+                            <li><a href="{{ path('chef_show', {'id': chef.id}) }}"><i class="fa fa-search"></i></a>
+                            </li>
+
+
+                        </ul>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
