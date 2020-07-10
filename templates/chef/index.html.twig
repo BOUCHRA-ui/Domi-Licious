@@ -7,7 +7,7 @@
 
     <!-- TEST MISE EN PAGE-->
 
-    <section class="box-content box-3" id="staff">
+     <section class="box-content box-3" id="staff">
         <div class="container">
             {% for chef in chefs %}
             <div class="row heading">
@@ -20,25 +20,17 @@
                         <div class="wrap-img">
                             <img src="{{ asset('uploads/images/chefs/') }}{{ chef.image }}" class="image-chef">
                         </div>
-                        <ul class="list-inline social-buttons">
-                            <!-- Lien icon bouton vers le menu + lien icon bouton booking -->
-                            <li><a href="{{ path('chef_show', {'id': chef.id}) }}"><i class="fa fa-search"></i></a>
-                            </li>
-
-
-                        </ul>
+            
+                           <button class="btn btn-secondary"><a href="{{ path('booking_new', {'id': chef.id}) }}">Réserver son menu</a></button>
+                            
                     </div>
                     <div class="col-md-6">
                         <div class="row">
                             <h3>Chef {{ chef.prenom }} {{ chef.nom }}</h3>
-                            <p>Présentation de la base de données: {{ chef.presentation }} - <br>Nibh congue scripserit
-                                ne mel, pri ne amet mnesarchum. Dicat maiestat per modo simul signiferumque te. Dolore
-                                intellegat eu cum, ut est Nostro eloquentiam interpretaris vel id. Minim consequuntur et
-                                eam, nonumy equidem pri. Vide virtute ocurreret per in antiopam.</p>
+                            <p>{{ chef.presentation }}
+                               </p>
                             <p>Menu de la base de données: - <br>Nibh congue scripserit ne mel, pri ne amet mnesarchum.
-                                Dicat maiestat per modo simul signiferumque te. Dolore intellegat eu cum, ut est Nostro
-                                eloquentiam interpretaris vel id. Minim consequuntur et eam, nonumy equidem pri. Vide
-                                virtute ocurreret per in antiopam.</p>
+                               .</p>
                         </div>
                     </div>
                 </div>

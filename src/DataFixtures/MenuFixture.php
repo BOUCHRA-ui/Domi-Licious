@@ -31,7 +31,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
 
     
             $menu = new Menu();
-            $menu->setEntree('Salade de Concombre sur son lit d\'Ananas');
+            $menu->setEntree('Salade de concombre sur son lit d\'Ananas');
             $menu->setPlat('Duo de saumon sur son tartare de boeuf');
             $menu->setDessert('Crêpe de Nutella');
             $menu->setImage('s1.jpg');
@@ -42,9 +42,9 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($menu);
 
             $menu2 = new Menu();
-            $menu2->setEntree('Nems au creevettes');
+            $menu2->setEntree('Nems aux crevettes');
             $menu2->setPlat('Spagettis bolognaise');
-            $menu2->setDessert('glaces');
+            $menu2->setDessert('Glaces');
             $menu2->setImage('s2.jpg');
             $menu2->setTypeCuisine($typeCuisine);
             $menu2->setChef($chef);
