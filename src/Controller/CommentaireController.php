@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
  * @Route("/commentaire")
  */
@@ -75,7 +76,12 @@ class CommentaireController extends AbstractController
         return $this->render('commentaire/edit.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form->createView(),
+
         ]);
+
+        $posts = $entityManager->getRepository(Post::class)->getLastInserted('App:Post', 2);
+
+
     }
 
     /**
@@ -91,4 +97,8 @@ class CommentaireController extends AbstractController
 
         return $this->redirectToRoute('commentaire_index');
     }
+   
+
+
+    
 }
