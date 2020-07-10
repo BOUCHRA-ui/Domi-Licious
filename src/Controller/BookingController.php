@@ -34,7 +34,7 @@ class BookingController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function new(Menu $menu = null, Request $request): Response
+    public function new(Request $request, Menu $menu = null): Response
     {
 
         $booking = new Booking();
