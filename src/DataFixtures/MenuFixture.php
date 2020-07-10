@@ -24,17 +24,20 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
             $chef = $this->getReference('chef');
-
+            $chef2 = $this->getReference('chef');
+            $chef3 = $this->getReference('chef');
+            $chef4 = $this->getReference('chef');
+            $chef5 = $this->getReference('chef');
+            $chef6 = $this->getReference('chef');
+      
             $typeCuisine = $this->getReference('type-cuisine');
 
-            
-
-    
+           
             $menu = new Menu();
-            $menu->setEntree('Salade de concombre sur son lit d\'Ananas');
-            $menu->setPlat('Duo de saumon sur son tartare de boeuf');
-            $menu->setDessert('Crêpe de Nutella');
-            $menu->setImage('s1.jpg');
+            $menu->setEntree('Carpaccio de boeuf sur fond de roquette OU Foie gras aux poires et aux marrons ');
+            $menu->setPlat('Cuissot de coq au vin pomme noisettes OU Magret en croute et légumes oubliés');
+            $menu->setDessert('Tatin de quetsches glace cannelle  OU Pavlova aux fraises des bois');
+            $menu->setImage('france.jpg');
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
             $menu->setPrice(200);
@@ -42,60 +45,59 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($menu);
 
             $menu2 = new Menu();
-            $menu2->setEntree('Nems aux crevettes');
-            $menu2->setPlat('Spagettis bolognaise');
-            $menu2->setDessert('Glaces');
-            $menu2->setImage('s2.jpg');
+            $menu2->setEntree('Salade mexicaine OU Fajitas de camarone');
+            $menu2->setPlat('Carne et velouté de patates douces OU Poisons grillé et petits légumes');
+            $menu2->setDessert('Bananes flambées au téquila OU Cake aux cerise');
+            $menu2->setImage('mex.jpg');
             $menu2->setTypeCuisine($typeCuisine);
-            $menu2->setChef($chef);
+            $menu2->setChef($chef2);
             $menu2->setPrice(200);
 
-            $manager->persist($menu);
+            $manager->persist($menu2);
 
             $menu3 = new Menu();
-            $menu3->setEntree('huitres');
-            $menu3->setPlat('suamon au riz');
-            $menu3->setDessert('cremme brulée');
-            $menu3->setImage('s3.jpg');
+            $menu3->setEntree('Zaalouk OU Salade marocaine');
+            $menu3->setPlat('Pastilla au poulet et aux amandes OU  Tajine Berbère');
+            $menu3->setDessert('Pavlova orange aux dates OU Ananas frais chantilly aux épices');
+            $menu3->setImage('oriafri.jpg');
             $menu3->setTypeCuisine($typeCuisine);
-            $menu3->setChef($chef);
+            $menu3->setChef($chef3);
             $menu3->setPrice(200);
 
-            $manager->persist($menu);
+            $manager->persist($menu3);
 
             $menu4 = new Menu();
-            $menu4->setEntree('salade de tomate et mozzarella');
-            $menu4->setPlat('chou farci au crevette');
-            $menu4->setDessert('foret noir');
-            $menu4->setImage('s4.jpg');
+            $menu4->setEntree('Antipasti OU Bresoala');
+            $menu4->setPlat('Risotto aux St-Jaques OU Tagliata di manzo');
+            $menu4->setDessert('Tiramisu aux Framboises OU Café Goloso ');
+            $menu4->setImage('ital.jpg');
             $menu4->setTypeCuisine($typeCuisine);
-            $menu4->setChef($chef);
+            $menu4->setChef($chef4);
             $menu4->setPrice(200);
 
-            $manager->persist($menu);
+            $manager->persist($menu4);
 
             $menu5 = new Menu();
-            $menu5->setEntree('tapas');
-            $menu5->setPlat('pizza 4 fromage');
-            $menu5->setDessert('tarte au myrtille');
-            $menu5->setImage('s5.jpg');
+            $menu5->setEntree('Rubans de courgettes et pignons de pin OU Tomates Farci au risotto');
+            $menu5->setPlat('Quiche aux asperge et brie OU Poivrons Farci au quinoa');
+            $menu5->setDessert('Glaces au yaourt et fraises OU Clafouti aux cerises');
+            $menu5->setImage('vege.jpg');
             $menu5->setTypeCuisine($typeCuisine);
-            $menu5->setChef($chef);
+            $menu5->setChef($chef5);
             $menu5->setPrice(200);
 
-            $manager->persist($menu);
+            $manager->persist($menu5);
 
             $menu6 = new Menu();
-            $menu6->setEntree('bacon au melon');
-            $menu6->setPlat('poulet roti');
-            $menu6->setDessert('tiramisu');
-            $menu6->setImage('s6.jpg');
+            $menu6->setEntree('Soupe aux légumes et matcha OU Croustillants saumon et fruit secs');
+            $menu6->setPlat('Grillades poison et légumes saison OU Wagyu Shigure Don');
+            $menu6->setDessert('Eppure aux fruits OU Mousse au thé matcha');
+            $menu6->setImage('asi.jpg');
             $menu6->setTypeCuisine($typeCuisine);
-            $menu6->setChef($chef);
+            $menu6->setChef($chef6);
             $menu6->setPrice(200);
 
-            $manager->persist($menu);
-     
+            $manager->persist($menu6);     
 
          $manager->flush();
 

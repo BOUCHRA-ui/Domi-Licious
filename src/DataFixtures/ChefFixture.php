@@ -22,9 +22,7 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
     }        
 
     public function load(ObjectManager $manager)
-    {
-
-            
+    {            
         $typeCuisine = $this->getReference('type-cuisine');
         $menu = $this->getReference('menu');
 
