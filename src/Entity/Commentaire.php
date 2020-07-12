@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentaireRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CommentaireRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -43,6 +44,7 @@ class Commentaire
     public function __construct()
     {
         $this->created_at = new \Datetime();
+        $this->commentaires = new ArrayCollection();
     }
 
     public function getId(): ?int

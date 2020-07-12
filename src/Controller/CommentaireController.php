@@ -37,6 +37,9 @@ class CommentaireController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            //$commentaire->setEmail($this->getUser());
+
             $entityManager->persist($commentaire);
             $entityManager->flush();
 
@@ -78,8 +81,6 @@ class CommentaireController extends AbstractController
             'form' => $form->createView(),
 
         ]);
-
-        $posts = $entityManager->getRepository(Post::class)->getLastInserted('App:Post', 2);
 
 
     }
