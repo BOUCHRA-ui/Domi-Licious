@@ -1,16 +1,15 @@
-#easy_admin:
-#    entities:
-#        # List the entity class name you want to manage
-#        - App\Entity\Booking
-#        - App\Entity\Chef
-#        - App\Entity\Commentaire
-#        - App\Entity\User
-
 easy_admin:
+    site_name: 'DomiLicious -  <b>Espace Admin</b>'
+    
+    user:
+        display_name: true
+        display_avatar: false
     entities:
         User:
             class: App\Entity\User
+            label: 'Utilisateurs'
             list:
+              title: "Liste des utilisateurs"  
               fields:
                   - id
                   - prenom
@@ -31,28 +30,45 @@ easy_admin:
                   - { property: 'roles', label: 'Rôles', type: choice, type_options: {expanded: true, multiple: true, choices: {'Utilisateur':'ROLE_USER', 'Administrateur':'ROLE_ADMIN'}}}
         Booking:
             class: App\Entity\Booking
+            label: 'Reservations'
+            list:
+              title: "Liste des reservations"
+              fields:
+                  - dateReservation
+                  - message
+            form:
+              fields:
+                  - dateReservation
+                  - message
         Chef:
             class: App\Entity\Chef
+            label: 'Chefs'
             list:
-                fields:
-                  - id
+              title: "Liste des chefs"
+              fields:
                   - nom
                   - prenom
                   - { property: 'image', type: 'image', base_path: '%app.path.chef_images%' }
                   - presentation
-                  - type_de_cuisine
-                  - menu
             form:
-                fields:
+              fields:
                   - nom
                   - prenom
-                  - { property: 'imageFile', type: 'vich_image' }
+                  - { property: 'imageFile', type: 'vich_image', base_path: '%app.path.chef_images%' }
                   - presentation
-                  - type_de_cuisine
-                  - menu
         Menu:
             class: App\Entity\Menu
-        TypeCuisine:
-            class: App\Entity\TypeCuisine
-        Commentaire:
-            class: App\Entity\Commentaire
+            label: 'Menus'
+            list:
+              title: "Liste des menus proposés"
+              fields:
+                  - entree
+                  - plat
+                  - dessert
+                  - { property: 'image', type: 'image', 'base_path': '/images' }
+            form:
+              fields:
+                  - entree
+                  - plat
+                  - dessert
+                  - image

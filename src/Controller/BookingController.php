@@ -29,7 +29,7 @@ class BookingController extends AbstractController
 
     /**
      * @Route("/new/{id}", name="booking_new", methods={"GET","POST"}, defaults={"id"="1"})
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @param Menu $menu
      * @param Request $request
      * @return Response
