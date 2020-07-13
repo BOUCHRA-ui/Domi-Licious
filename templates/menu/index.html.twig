@@ -1,270 +1,116 @@
 {% extends 'base.html.twig' %}
 
-{% block header %} header {% endblock %}
+{% block header %}  {% endblock %}
 
 {% block title %}Menu index{% endblock %}
 
 {% block body %}
 
-<!-- ////////////Content Box 02 -->
-		<section class="box-content box-2 box-style" id="menu">
-			<div class="container">
-				<div class="row heading">
-				    {% for menu in menus %}
-							<li>
-					<a href="{{ path('booking_new', {'id': menu.id}) }}">Réserver</a>
-							</li>
 
-						<h2>Menu</h2>
-						<div class="intro">
-                             <h1>Domi-Licious</h1>
-                         <br>
-                                Découvrez les menus que les chefs vous proposent et réservez en ligne.</div>
-	                    </div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"> 
-								<img src="{{ asset('images/france.jpg')}}" alt="cuisine-francaise">
-								  <div class="media__body">
-									<h2>MENU FRANCAIS</h2>
-									<p>ici</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>Cuisine Francaise</h3>
-									<hr>
-									<p>         Entrées
-										<br>
-										Carpaccio de boeuf sur fond de roquette
-										<br>OU<br>Foie gras aux poires et aux marrons
-										<br>
-										<hr>
-												Plats principal
-										<br>
-										Cuissot de coq au vin pomme noisettes
-										<br>OU<br>Magret en croute et légumes oubliés
-										<br>
-										<hr>
-										Desserts
-										<br>
-										Tatin de quetsches glace cannelle
-										<br>OU<br>Pavlova aux fraises des bois
-									</p>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"> <img src="{{ asset('images/ital.jpg')}}" alt="cuisine-italienne">
-								  <div class="media__body">
-									<h2>MENU ITALIEN</h2>
-									<p>ici</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>Cuisine Italienne</h3>
-									<p>
-										<hr>        
-									         Entrées
-										<br>
-										     Antipasti<br>OU<br>Bresoala
-										<br>
-										<hr>
-											 Plats principal
-										<br>
-										     Risotto aux St-Jacques
-										<br> OU<br> Tagliata di manzo
-										<br>
-										<hr>
-										     Desserts
-										<br>
-										    Tiramisu aux Framboises
-										<br>OU<br>Café Goloso 
-                                    </p>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media">
-                                 <img src="{{ asset('images/mex.jpg')}}" alt="cuisine-mexicaine">
-								  <div class="media__body">
-									<h2>MENU MEXICAIN</h2>
-									<p>ici</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>Cuisine Mexicainne</h3>
-									<p>        
-									      Entrées
-										<br>
-										Salade mexicaine
-										<br>OU<br>Fajitas de camarone
-										<br>
-										<hr>
-												Plats principal
-										<br>
-										Carne et velouté de patates douces
-										<br>OU<br>Poisons grillé et petits légumes
-										<br>
-										<hr>
-										Desserts
-										<br>
-										Bananes flambées au téquila
-										<br>OU<br>Cake aux cerises
-                                    </p>	
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media">
-                                 <img src="{{ asset('images/oriafri.jpg')}}" alt="cuisine-africaine">
-								  <div class="media__body">
-									<h2>MENU AFRICAIN</h2>
-									<p>ici</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>Cuisine Africaine</h3>
-									<p>        
-									      Entrées
-										<br>
-										Zaalouk
-										<br>OU<br>Salade marocaine
-										<br>
-										<hr>
-												Plats principal
-										<br>
-										Pastilla au poulet et aux amandes
-										<br>OU<br>Tajine Berbère
-										<br>
-										<hr>
-										Desserts
-										<br>
-										Pavlova orange aux dates
-										<br>OU<br>Ananas frais chantilly aux épices
-                                    </p>
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-                <div class="row">
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"> <img src="{{ asset('images/asi.jpg')}}" alt="cuisine-asiatique">
-								  <div class="media__body">
-									<h2>MENU ASIATIQUE</h2>
-									<p>ici</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>cuisine Asiatique</h3>
-									<p>        
-									      Entrées
-										<br>
-										Soupe aux légumes et matcha
-										<br>OU<br>Croustillants saumon et fruit secs
-										<br>
-										<hr>
-												Plats principal
-										<br>
-										Grillades poison et légumes saison
-										<br>OU<br>Wagyu Shigure Don
-										<br>
-										<hr>
-										Desserts
-										<br>
-										Eppure aux fruits
-										<br>OU<br>Mousse au thé matcha
-                                    </p> 
-								</div>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="box-item">
-							<div class="col-sm-6">
-								<div class="media"> <img src="{{ asset('images/vege.jpg')}}" alt="cuisine-vegetarienne">
-								  <div class="media__body">
-									<h2>MENU VEGETARIAN</h2>
-									<p>ici</p>
-								  </div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="wrapper">
-									<h3>Cuisine Végétarienne</h3>
-									<p>        
-									      Entrées
-										<br>
-										Rubans de courgettes et pignons de pin 
-										<br>OU<br>Tomates Farci au risotto
-										<br>
-										<hr>
-												Plats principal
-										<br>
-										Quiche aux asperge et brie
-										<br>OU<br>Poivrons Farci au quinoa
-										<br>
-										<hr>
-										Desserts
-										<br>
-										Glaces au yaourt et fraises<br>OU<br>Clafouti aux cerises
-                                    </p>
-							
-								</div>
-								</div>
-								<div class="clear"></div>
-							
-								</div>
-								</div>
-							</div>
-			
-						</div>
-					</div>
-				</div>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+				</button>
+				<a class="navbar-brand" href="{{path('accueil')}}">
+					<img src="{{ asset('images/logo2.png') }}" class="hidden-xs" alt="logo domilicious">
+					
+					<h3 class="visible-xs">Domi'Licious</h3>
+				</a>
 			</div>
-			</section>
-			{% endfor %}
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+                        <a class="page-scroll" href="{{path('chef_index')}}">Chefs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{path('menu_index')}}">Menus</a>
+                    </li>
+                    <li>
+						<a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
+					</li>
+					<li>
+                        <a class="page-scroll" href="{{path('commentaire_index')}}">Livre d'or</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
+                    </li>
+
+										
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					
+					<em class="auth">Bonjour, {{ app.user.prenom }} - {{ app.user.nom }}</em>
+					 || 
+					
+					<a href="{{path('app_logout')}}"><img src="{{ asset('images/exit.png') }}" alt="se déconnecter"></a>
+					
+					{% else %}
+					                     
+                    <button type="button" class="btn btn-info">
+                         <a href="{{path('app_register')}}">Je m'inscris !</a>
+					</button>
+
+					|| <a href="{{path('app_login')}}"><img src="{{ asset('images/connect.png') }}" alt="connexion"></a>
+
+					</li><br>
+					<em>Bonjour, visiteur!</em>
+					</li>
+					
+					{% endif %}
+					{% if is_granted('ROLE_ADMIN') %}
+					<li>
+                    <button type="button" class="btn btn-dark">
+                            <a href="{{path('easyadmin')}}" target="_blank">Espace admin</a>
+                    </button>
+                    
+					</li>
+					{% endif %}
+					
+				</ul>
 			</div>
 		</div>
-        
-   
+	</nav>
 
-    <a href="{{ path('menu_new') }}">Create new</a>
 
-     <script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.backTop.min.js"></script>
-    <script src="js/jquery.contact-buttons.js"></script>
-	<script src="js/demo.js"></script>
-	<script>
+     <section class="box-content box-3" id="menu">
+        <div class="container">
+            {% for menu in menus %}
+            <div class="row heading">
+                <div class="col-lg-12">
+                 <h2>Cuisine : {{ menu.typeCuisine.title }}</h2>
+                </div>
+                <div class="row center">
+                    <div class="col-md-6">
+                        <div class="wrap-img">
+                            <img src="{{ asset('uploads/images/chefs/') }}{{ menu.image }}">
+							 
+                        </div>
+                           <button class="btn btn-dark"><a href="{{ path('booking_new', {'id': menu.id}) }}">Réserver ce menu</a></button>
+                             
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <h3>Menu</h3>
+                            <p>
+                            {{ menu.entree }}
+							<hr>
+							 {{ menu.plat }}
+							 <hr>
+                            {{ menu.dessert }}
+                            </p>
+                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

@@ -24,15 +24,16 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
             $chef = $this->getReference('chef');
-            $chef2 = $this->getReference('chef');
-            $chef3 = $this->getReference('chef');
-            $chef4 = $this->getReference('chef');
-            $chef5 = $this->getReference('chef');
-            $chef6 = $this->getReference('chef');
+            $chef2 = $this->getReference('chef2');
+            $chef3 = $this->getReference('chef3');
+            $chef4 = $this->getReference('chef4');
+            $chef5 = $this->getReference('chef5');
+            $chef6 = $this->getReference('chef6');
+            
       
-            $typeCuisine = $this->getReference('type-asiatique');
+         
 
-           
+            $typeCuisine2 = $this->getReference('type-francais');
             $menu = new Menu();
             $menu->setEntree('Carpaccio de boeuf sur fond de roquette OU Foie gras aux poires et aux marrons ');
             $menu->setPlat('Cuissot de coq au vin pomme noisettes OU Magret en croute et légumes oubliés');
@@ -41,9 +42,12 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu->setTypeCuisine($typeCuisine);
             $menu->setChef($chef);
             $menu->setPrice(200);
+           
 
             $manager->persist($menu);
 
+
+            $typeCuisine = $this->getReference('type-mexicain');
             $menu2 = new Menu();
             $menu2->setEntree('Salade mexicaine OU Fajitas de camarone');
             $menu2->setPlat('Carne et velouté de patates douces OU Poisons grillé et petits légumes');
@@ -52,9 +56,12 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu2->setTypeCuisine($typeCuisine);
             $menu2->setChef($chef2);
             $menu2->setPrice(200);
+            
 
             $manager->persist($menu2);
 
+
+            $typeCuisine = $this->getReference('type-orientale');
             $menu3 = new Menu();
             $menu3->setEntree('Zaalouk OU Salade marocaine');
             $menu3->setPlat('Pastilla au poulet et aux amandes OU  Tajine Berbère');
@@ -63,9 +70,12 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu3->setTypeCuisine($typeCuisine);
             $menu3->setChef($chef3);
             $menu3->setPrice(200);
+       
 
             $manager->persist($menu3);
 
+
+            $typeCuisine = $this->getReference('type-italien');
             $menu4 = new Menu();
             $menu4->setEntree('Antipasti OU Bresoala');
             $menu4->setPlat('Risotto aux St-Jaques OU Tagliata di manzo');
@@ -74,9 +84,12 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu4->setTypeCuisine($typeCuisine);
             $menu4->setChef($chef4);
             $menu4->setPrice(200);
+           
 
             $manager->persist($menu4);
 
+
+            $typeCuisine = $this->getReference('type-vegetarian');
             $menu5 = new Menu();
             $menu5->setEntree('Rubans de courgettes et pignons de pin OU Tomates Farci au risotto');
             $menu5->setPlat('Quiche aux asperge et brie OU Poivrons Farci au quinoa');
@@ -85,17 +98,21 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu5->setTypeCuisine($typeCuisine);
             $menu5->setChef($chef5);
             $menu5->setPrice(200);
+    
 
             $manager->persist($menu5);
 
+
+            $typeCuisine = $this->getReference('type-asiatique');
             $menu6 = new Menu();
             $menu6->setEntree('Soupe aux légumes et matcha OU Croustillants saumon et fruit secs');
             $menu6->setPlat('Grillades poison et légumes saison OU Wagyu Shigure Don');
             $menu6->setDessert('Eppure aux fruits OU Mousse au thé matcha');
             $menu6->setImage('asi.jpg');
-            $menu6->setTypeCuisine($typeCuisine);
+            $menu6->setTypeCuisine($typeCuisine6);
             $menu6->setChef($chef6);
             $menu6->setPrice(200);
+       
 
             $manager->persist($menu6);     
 
@@ -117,4 +134,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             TypeCuisineFixture::class,
         );
     }
+
+
+
 }
