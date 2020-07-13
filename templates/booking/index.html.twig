@@ -18,7 +18,9 @@
         <tbody>
         {% for booking in bookings %}
             <tr>
-                <td>{{ booking.dateReservation ? booking.dateReservation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ booking.dateReservation ? booking.dateReservation|date("d/m/Y" ~ " à " ~ "H:i:s", "Europe/Paris")
+
+ }}</td>
                 <td>{{ booking.message }}</td>
                 <td>
                     <a href="{{ path('booking_show', {'id': booking.id}) }}">show</a>

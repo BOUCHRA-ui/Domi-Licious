@@ -36,7 +36,7 @@ class BookingController extends AbstractController
      */
     public function new(Request $request, Menu $menu = null): Response
     {
-
+        
         $booking = new Booking();
         $booking->setMenu($menu);
         $booking->setUser($this->getUser());

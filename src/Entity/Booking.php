@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Twig\Extra\Intl\IntlExtension;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
@@ -38,6 +39,11 @@ class Booking
      * @ORM\JoinColumn(nullable=false)
      */
     private $menu;
+
+    public function __construct()
+    {
+        $this->dateReservation = new \Datetime();
+    }
 
     public function getId(): ?int
     {

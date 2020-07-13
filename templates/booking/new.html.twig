@@ -3,7 +3,7 @@
             {% block title %}New Booking{% endblock %}
 
         {% block body %}
-
+  
             <div class="container">
                 <h1>Réservez votre menu</h1>
                 <ul>
@@ -12,14 +12,14 @@
                     <li><strong>Dessert :</strong>{{ booking.menu.dessert }}</li>
                 </ul>
                 <h3>Votre Chef</h3>
-                <p>{{ booking.menu.chef.prenom }} {{ booking.menu.chef.nom }}</p>
+                <p>{{ booking.menu.chef.prenom}} {{ booking.menu.chef.nom }}</p>
                 <h3>Tarif</h3>
                 <p>{{ booking.menu.price }} &euro;</p>
 
                 {{ include('booking/_form.html.twig') }}
 
                 <a href="{{ path('booking_index') }}">back to list</a>
-{#                <a href="{{ path('booking_calendar') }}">Voir le calendrier</a>#}
+                {# <a href="{{ path('booking_calendar') }}">Voir le calendrier</a>#}
             </div>
         
         {% endblock %}
