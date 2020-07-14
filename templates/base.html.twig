@@ -9,6 +9,8 @@
 	<title>{% block title %}DomiLicious - Votre chef à domicile{% endblock %}</title>
 	
 	{% block stylesheets %}
+	<!-- Favicon Domilicious -->
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
 	 <!-- Bootstrap Core CSS -->
     <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
@@ -105,7 +107,9 @@
                          <a href="{{path('app_register')}}">Je m'inscris !</a>
 					</button>
 
-					|| <a href="{{path('app_login')}}"><img src="{{ asset('images/connect.png') }}" alt="connexion"></a>
+					|| <button type="button" class="btn btn-light">
+						<a href="{{path('app_login')}}"><img src="{{ asset('images/enter.png') }}" alt="connexion"> Se connecter</a>
+						</button>
 
 					</li><br>
 					<em>Bonjour, visiteur!</em>
@@ -143,30 +147,31 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-footer footer-1">
-						<div class="footer-heading"><h4>Langages</h4></div>
+						<div class="footer-heading"><h4>Langages</h4>
+					</div>
 						<div class="content">
 							<div class="row">
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/symfony.png')}}" /></a>
+								<div class="col-md-3">
+									<img src="{{ asset('images/html-5.png')}}" class="img-thumbnail"/>
 								</div>
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/htmlcss.png')}}" /></a>
+								<div class="col-md-3">
+									<img src="{{ asset('images/css.png')}}" class="img-thumbnail" />
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/php.png')}}" /></a>
-								</div>
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/jquery.png')}}" /></a>
+								<div class="col-md-3">
+									<img src="{{ asset('images/javascript.png')}}" class="img-thumbnail" />
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6">
-									<a href="#"><img src="{{ asset('images/bootstrap.png')}}" /></a>
+								<div class="col-md-3">
+									<img src="{{ asset('images/icon-bootstrap.png')}}" class="img-thumbnail"/>
+								</div>
+								<div class="col-md-3">
+									<img src="{{ asset('images/icon-symfony.png')}}" class="img-thumbnail" />
+								</div>
+								<div class="col-md-3">
+									<img src="{{ asset('images/icon-cafe.png')}}" class="img-thumbnail" />
 								</div>
 							</div>
-							
 						</div>
 					</div>
 					<div class="col-md-4 col-footer footer-2">
