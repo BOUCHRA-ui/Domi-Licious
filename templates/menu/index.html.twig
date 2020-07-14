@@ -5,7 +5,6 @@
 {% block title %}Menu index{% endblock %}
 
 {% block body %}
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -16,6 +15,19 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 
+<<<<<<< Updated upstream
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+=======
+>>>>>>> Stashed changes
 				</button>
 				<a class="navbar-brand" href="{{path('accueil')}}">
 					<img src="{{ asset('images/logo2.png') }}" class="hidden-xs" alt="logo domilicious">
@@ -71,11 +83,20 @@
 					{% endif %}
 					
 					
+<<<<<<< Updated upstream
+=======
+					
+
+>>>>>>> Stashed changes
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
      <section class="box-content box-3" id="menu">
         <div class="container">
             {% for menu in menus %}
@@ -97,11 +118,19 @@
                             <h3>Menu</h3>
                             <p>
                             {{ menu.entree }}
+<<<<<<< Updated upstream
                             <hr>
                             <br>
                              {{ menu.plat }}
                             <hr>
                             <br>
+=======
+                            <br> 
+                            <hr>
+                            {{ menu.plat }}
+                            <br>
+                            <hr>
+>>>>>>> Stashed changes
                             {{ menu.dessert }}
                             </p>
                         
