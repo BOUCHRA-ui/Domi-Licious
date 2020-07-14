@@ -20,6 +20,7 @@ class MenuController extends AbstractController
      */
     public function index(MenuRepository $menuRepository): Response
     {
+        
         return $this->render('menu/index.html.twig', [
             'menus' => $menuRepository->findAll(),
         ]);
@@ -30,6 +31,7 @@ class MenuController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        
         $menu = new Menu();
         $form = $this->createForm(Menu1Type::class, $menu);
         $form->handleRequest($request);

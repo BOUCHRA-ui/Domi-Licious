@@ -11,9 +11,7 @@
 			<div class="container">
 				<div class="row heading">
 				    {% for menu in menus %}
-							<li>
-					<a href="{{ path('booking_new', {'id': menu.id}) }}">Réserver</a>
-							</li>
+					
 
 						<h2>Menu</h2>
 						<div class="intro">
@@ -56,6 +54,9 @@
 										<br>OU<br>Pavlova aux fraises des bois
 									</p>
 								</div>
+									
+					<button class="btn btn-dark"><a href="{{ path('booking_new', {'id': menu.id}) }}">Réserver</a></button>
+							
 							</div>
 							<div class="clear"></div>
 						</div>
@@ -91,10 +92,12 @@
 										    Tiramisu aux Framboises
 										<br>OU<br>Café Goloso 
                                     </p>
+									
 								</div>
 							</div>
 							<div class="clear"></div>
 						</div>
+						
 					</div>
 				</div>
 				<div class="row">

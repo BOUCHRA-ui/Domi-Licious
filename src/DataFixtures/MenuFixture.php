@@ -30,7 +30,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $chef5 = $this->getReference('chef');
             $chef6 = $this->getReference('chef');
       
-            $typeCuisine = $this->getReference('type-asiatique');
+            $typeCuisine = $this->getReference('type-Francaise');
 
            
             $menu = new Menu();
@@ -44,6 +44,8 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
 
             $manager->persist($menu);
 
+            $typeCuisine2 = $this->getReference('type-Italienne');
+
             $menu2 = new Menu();
             $menu2->setEntree('Salade mexicaine OU Fajitas de camarone');
             $menu2->setPlat('Carne et velouté de patates douces OU Poisons grillé et petits légumes');
@@ -55,6 +57,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
 
             $manager->persist($menu2);
 
+            $typeCuisine3 = $this->getReference('type-Mexicainne');
             $menu3 = new Menu();
             $menu3->setEntree('Zaalouk OU Salade marocaine');
             $menu3->setPlat('Pastilla au poulet et aux amandes OU  Tajine Berbère');
@@ -65,6 +68,8 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu3->setPrice(200);
 
             $manager->persist($menu3);
+
+            $typeCuisine4 = $this->getReference('type-Africaine');
 
             $menu4 = new Menu();
             $menu4->setEntree('Antipasti OU Bresoala');
@@ -77,6 +82,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
 
             $manager->persist($menu4);
 
+            $typeCuisine5 = $this->getReference('type-Asiatique');
             $menu5 = new Menu();
             $menu5->setEntree('Rubans de courgettes et pignons de pin OU Tomates Farci au risotto');
             $menu5->setPlat('Quiche aux asperge et brie OU Poivrons Farci au quinoa');
@@ -88,6 +94,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
 
             $manager->persist($menu5);
 
+            $typeCuisine6 = $this->getReference('type-Végétarienne');
             $menu6 = new Menu();
             $menu6->setEntree('Soupe aux légumes et matcha OU Croustillants saumon et fruit secs');
             $menu6->setPlat('Grillades poison et légumes saison OU Wagyu Shigure Don');
@@ -115,6 +122,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
         return array(
             ChefFixture::class,
             TypeCuisineFixture::class,
+            
         );
     }
 }

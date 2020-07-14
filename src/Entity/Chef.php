@@ -181,6 +181,11 @@ class Chef
         return $this;
     }
 
+    public function __toString(): ?string
+    {
+        return '';
+    }
+
     /**
      * @return \DateTime
      */
