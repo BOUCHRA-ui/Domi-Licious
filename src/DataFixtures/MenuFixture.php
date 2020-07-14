@@ -24,13 +24,18 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
             $chef = $this->getReference('chef');
-            $chef2 = $this->getReference('chef');
-            $chef3 = $this->getReference('chef');
-            $chef4 = $this->getReference('chef');
-            $chef5 = $this->getReference('chef');
-            $chef6 = $this->getReference('chef');
+            $chef2 = $this->getReference('chef2');
+            $chef3 = $this->getReference('chef3');
+            $chef4 = $this->getReference('chef4');
+            $chef5 = $this->getReference('chef5');
+            $chef6 = $this->getReference('chef6');
       
-            $typeCuisine = $this->getReference('type-asiatique');
+            $typeCuisine = $this->getReference('type-orientale');
+            $typeCuisine2 = $this->getReference('type-japonnais');
+            $typeCuisine3 = $this->getReference('type-asiatique');
+            $typeCuisine4 = $this->getReference('type-francais');
+            $typeCuisine5 = $this->getReference('type-italien');
+            $typeCuisine6 = $this->getReference('type-mexicain');
 
            
             $menu = new Menu();
@@ -49,7 +54,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu2->setPlat('Carne et velouté de patates douces OU Poisons grillé et petits légumes');
             $menu2->setDessert('Bananes flambées au téquila OU Cake aux cerise');
             $menu2->setImage('mex.jpg');
-            $menu2->setTypeCuisine($typeCuisine);
+            $menu2->setTypeCuisine($typeCuisine2);
             $menu2->setChef($chef2);
             $menu2->setPrice(200);
 
@@ -60,7 +65,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu3->setPlat('Pastilla au poulet et aux amandes OU  Tajine Berbère');
             $menu3->setDessert('Pavlova orange aux dates OU Ananas frais chantilly aux épices');
             $menu3->setImage('oriafri.jpg');
-            $menu3->setTypeCuisine($typeCuisine);
+            $menu3->setTypeCuisine($typeCuisine3);
             $menu3->setChef($chef3);
             $menu3->setPrice(200);
 
@@ -71,7 +76,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu4->setPlat('Risotto aux St-Jaques OU Tagliata di manzo');
             $menu4->setDessert('Tiramisu aux Framboises OU Café Goloso ');
             $menu4->setImage('ital.jpg');
-            $menu4->setTypeCuisine($typeCuisine);
+            $menu4->setTypeCuisine($typeCuisine4);
             $menu4->setChef($chef4);
             $menu4->setPrice(200);
 
@@ -82,7 +87,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu5->setPlat('Quiche aux asperge et brie OU Poivrons Farci au quinoa');
             $menu5->setDessert('Glaces au yaourt et fraises OU Clafouti aux cerises');
             $menu5->setImage('vege.jpg');
-            $menu5->setTypeCuisine($typeCuisine);
+            $menu5->setTypeCuisine($typeCuisine5);
             $menu5->setChef($chef5);
             $menu5->setPrice(200);
 
@@ -93,7 +98,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu6->setPlat('Grillades poison et légumes saison OU Wagyu Shigure Don');
             $menu6->setDessert('Eppure aux fruits OU Mousse au thé matcha');
             $menu6->setImage('asi.jpg');
-            $menu6->setTypeCuisine($typeCuisine);
+            $menu6->setTypeCuisine($typeCuisine6);
             $menu6->setChef($chef6);
             $menu6->setPrice(200);
 
