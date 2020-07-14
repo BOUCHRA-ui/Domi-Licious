@@ -1,31 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Commentaire index{% endblock %}
-
 {% block body %}
 
- <section class="box-content box-3" id="staff">
-        <div class="container">
-            {% for commentaire in commentaires %}
-            <div class="row heading">
-             <div class="jumbotron">
-                <div class="col-lg-12">
-                    <h2>{{ commentaire.titre }}, {{ commentaire.createdAt ? commentaire.createdAt|date('d-m-Y') : '' }}</h2>
-                </div>
-                <div class="row center">
-                    
-                    <div class="col-md-12">
-                        <div class="row">
-                            <h5>{{ commentaire.message }}</h5>
+<div id="page-content" class="archives-page">
+	<div class="container">
+		<div class="row">
+             <div id="main-content" class="col-md-10">
+				<article class="contact">
+					<div class="art-header">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ form_start(form) }}
+                         {{ form_row(form) }}
+                            <button class="btn btn-danger">{{ button_label|default('Envoyer') }}</button>
+                        {{ form_end(form) }}
                 
-                        </div>
-                    </div>
+                        {% endif %}   
                 </div>
-                </div>
-                {% endfor %}
-                 
+                </article>
             </div>
         </div>
-    </section>
+    </div>                 
+</div>
 
+    <div class="container">
+
+                <div class="col-md-10">       <!-- Standard button -->
+                    <button type="button" class="btn btn-danger ribbon"><h5 id="bandeau">Commentaires utilisateurs</h5></button>
+                </div>
+            
+    </div>
+ <div id="page-content" class="archives-page">
+		<div class="container">
+			<div class="row">
+                <div id="main-content" class="col-md-10">
+					<article class="contact">
+						<div class="art-header">
+                                 {% for commentaire in commentaires %}
+                                <h6>{{ commentaire.email }}</h6>
+                                    <div class="col-md-12">
+                                         <div class="row">
+                                            <p> <em>{{ commentaire.message }}</em></p>
+                                            <p><em>{{ commentaire.createdAt ? commentaire.createdAt|date('d-m-Y') : '' }}</em></p>
+                                         </div>
+                                    </div>
+                                {% endfor %}
+                        </div>
+                    </article>
+                </div>
+            </div>          
+     </div>           
+</div>
+
+
+          
 {% endblock %}
