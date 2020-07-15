@@ -46,9 +46,8 @@ security:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/menu/new, roles: ROLE_ADMIN }
          - { path: ^/chef/new, roles: ROLE_ADMIN }
-         - { path: ^/type/cuisine, roles: ROLE_ADMIN }
+         - { path: ^/user, roles: ROLE_ADMIN }
          
-
         # - { path: '^/admin', roles: ROLE_USER_IP, ip: 127.0.0.1 }
         # - { path: '^/admin', roles: ROLE_USER_PORT, ip: 127.0.0.1, port: 8080 }
         # - { path: '^/admin', roles: ROLE_USER_HOST, host: symfony\.com$ }

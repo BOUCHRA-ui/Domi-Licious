@@ -1,39 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'identifier - Domilicious{% endblock %}
+{% block title %}S'identifier - Domi'Licious{% endblock %}
 
 {% block body %}
 <div id="page-content" class="archives-page">
-		<div class="container">
-			<div class="row">
-				<div id="main-content" class="col-md-8">
-					<article class="contact">
-						<div class="art-header">
-							<h2 class="center">Inscription</h2>
-						</div>
-						<div class="art-content">
-							<div id="contact_form">
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+	<div class="container">
+		<div class="row">
+			<div id="main-content" class="col-md-8">
+				<article class="contact">
+					<div class="art-header">
+						<h2 class="center">Inscription</h2>
+					</div>
+					<div class="art-content">
+						<div id="contact_form">
+                            <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes identifié en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-        </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Merci de vous identifier</h1>
-
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                            {% if app.user %}
+                                    <div class="mb-3">
+                                        Vous êtes identifié en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                    </div>
+                            {% endif %}
+                                        <h1 class="h3 mb-3 font-weight-normal">Merci de vous identifier</h1>
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+                                    <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -45,16 +40,15 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-danger" type="submit">
-        Se connecter
-    </button>
-</form>
-</div>
-						</div>
-					</article>
-				</div>
-            </div>
+                                <button class="btn btn-danger" type="submit">
+                                    Se connecter
+                                </button>
+                            </form>
+                        </div>
+					</div>
+				</article>
+			</div>
         </div>
-    </div>        
+    </div>
+</div>        
 {% endblock %}

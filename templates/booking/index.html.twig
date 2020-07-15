@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Réservations - Domilicious{% endblock %}
+{% block title %}Réservations - Domi'Licious{% endblock %}
 
 {% block body %}
     <div id="page-content" class="archives-page">
@@ -13,52 +13,48 @@
 						</div>
 						    <div class="art-content">
                                 <div id="contact_form" id="ff">
-
     
-          <div class="paypal">
-            <p>
-                <h6>Cette transaction sera payée en EUR.</h6>
-                <br>
-                    Paiement sécurisé par PayPal. 
-            </p>
-                <div id="paypal-button-container"></div>
-                        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
-                        <script>
-                        paypal.Buttons({
-                            style: {
-                                shape: 'pill',
-                                color: 'gold',
-                                layout: 'vertical',
-                                label: 'pay',
-                                
-                            },
-                            createOrder: function(data, actions) {
-                                return actions.order.create({
-                                    purchase_units: [{
-                                        amount: {
-                                            value: '1'
-                                        }
-                                    }]
-                                });
-                            },
-                            onApprove: function(data, actions) {
-                                return actions.order.capture().then(function(details) {
-                                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                                });
-                            }
-                        }).render('#paypal-button-container');
-                        </script>
-
-             </div>
-             </div>
+                                    <div class="paypal">
+                                        <p>
+                                            <h6>Cette transaction sera payée en EUR.</h6>
+                                            <br>
+                                                Paiement sécurisé par PayPal. 
+                                        </p>
+                                    <div id="paypal-button-container"></div>
+                                        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
+                                        <script>
+                                        paypal.Buttons({
+                                            style: {
+                                                shape: 'pill',
+                                                color: 'gold',
+                                                layout: 'vertical',
+                                                label: 'pay',
+                                                
+                                            },
+                                            createOrder: function(data, actions) {
+                                                return actions.order.create({
+                                                    purchase_units: [{
+                                                        amount: {
+                                                            value: '1'
+                                                        }
+                                                    }]
+                                                });
+                                            },
+                                            onApprove: function(data, actions) {
+                                                return actions.order.capture().then(function(details) {
+                                                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                                });
+                                            }
+                                        }).render('#paypal-button-container');
+                                        </script>
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                            </article>
-                            </div>
-						</div>
-					           
-   
-       
+                        </div>
+                    </article>
+                </div>
+			</div>
+	     
       
     
 

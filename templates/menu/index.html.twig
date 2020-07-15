@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Menu index{% endblock %}
+{% block title %}Les menus des chefs - Domi'Licious{% endblock %}
 
 {% block body %}
 
@@ -15,10 +15,8 @@
                     <div class="col-md-6">
                         <div class="wrap-img">
                             <img src="{{ asset('uploads/images/chefs/') }}{{ menu.image }}">
-							 
-                        </div>
+						</div>
                            <button class="btn btn-dark"><a href="{{ path('booking_new', {'id': menu.id}) }}">Réserver ce menu</a></button>
-                             
                     </div>
                     <div class="col-md-6">
                         <div class="row">
@@ -33,7 +31,6 @@
                             {{ menu.dessert }}
                             </p>
                             </div>
-                        
                         </div>
                     </div>
                 </div>

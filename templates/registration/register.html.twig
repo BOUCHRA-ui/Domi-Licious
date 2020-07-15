@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription - Domilicious{% endblock %}
+{% block title %}Inscription - Domi'Licious{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
@@ -20,42 +20,36 @@
 
                         {{ form_start(registrationForm) }}
 
-                        <div class="form-row" id="ff">
-        <div class="form-group col-md-6">
-            <label >Nom</label>
-             {{ form_widget(registrationForm.nom, {'attr':{'placeholder':'Votre nom', 'class':'form-control'}}) }}
-        </div>
-        <div class="form-group col-md-6">
-         <label >Prénom</label>
-            {{ form_widget(registrationForm.prenom, {'attr':{'placeholder':'Votre prenom', 'class':'form-control'}}) }}
-        </div>
-        <div class="form-group col-md-6">
-         <label >Adresse complète</label>
-            {{ form_widget(registrationForm.adresse, {'attr':{'placeholder':'N°rue + Rue + code postal + ville', 'class':'form-control'}}) }}
-        </div>
-        <div class="form-group col-md-6">
-         <label >Téléphone</label>
-            {{ form_widget(registrationForm.telephone, {'attr':{'placeholder':'N° de téléphone à 10 chiffres', 'class':'form-control'}}) }}
-        </div>
-         <div class="form-group col-md-6">
-            <label >Email</label>
-             {{ form_widget(registrationForm.email, {'attr':{'placeholder':'Votre email', 'class':'form-control'}}) }}
-        </div>
-        <div class="form-group col-md-6">
-         <label >Mot de passe</label>
-            {{ form_widget(registrationForm.plainPassword, {'attr':{'placeholder':'Choisir un mot de passe', 'class':'form-control'}}) }}
-        </div>
-    
-      
-    </div>
-        <button type="submit" class="sendButton btn btn-danger" >S'inscrire</button>
-    {{ form_end(registrationForm) }}
-</div>
-
-
-
-								
-							</div>
+                                <div class="form-row" id="ff">
+                                    <div class="form-group col-md-6">
+                                        <label >Nom</label>
+                                        {{ form_widget(registrationForm.nom, {'attr':{'placeholder':'Votre nom', 'class':'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label >Prénom</label>
+                                        {{ form_widget(registrationForm.prenom, {'attr':{'placeholder':'Votre prenom', 'class':'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label >Adresse complète</label>
+                                        {{ form_widget(registrationForm.adresse, {'attr':{'placeholder':'N°rue + Rue + code postal + ville', 'class':'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label >Téléphone</label>
+                                        {{ form_widget(registrationForm.telephone, {'attr':{'placeholder':'N° de téléphone à 10 chiffres', 'class':'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label >Email</label>
+                                        {{ form_widget(registrationForm.email, {'attr':{'placeholder':'Votre email', 'class':'form-control'}}) }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label >Mot de passe</label>
+                                        {{ form_widget(registrationForm.plainPassword, {'attr':{'placeholder':'Choisir un mot de passe', 'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <button type="submit" class="sendButton btn btn-danger" >S'inscrire</button>
+                        {{ form_end(registrationForm) }}
+                                </div>
+                            </div>
 						</div>
 					</article>
 				</div>
