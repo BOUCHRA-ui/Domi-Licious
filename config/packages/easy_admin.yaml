@@ -46,10 +46,12 @@ easy_admin:
               fields:
                   - dateReservation
                   - message
+                  - {property: 'user', label: 'Client'}
             form:
               fields:
                   - dateReservation
                   - message
+                  - {property: 'user', label: 'Client'}
         Chef:
             class: App\Entity\Chef
             label: 'Chefs'
@@ -82,4 +84,18 @@ easy_admin:
                   - plat
                   - dessert
                   - { property: 'imageFile', type: 'vich_image', base_path: '%app.path.chef_images%' }
+        Commentaire:
+            class: App\Entity\Commentaire
+            label: 'Commentaires'
+            list:
+              title: "Liste des commentaires"
+              fields:
+                  - {property: 'email', label: 'Client'}
+                  - titre
+                  - message
+            form:
+              fields:
+                  - {property: 'email', label: 'Client'}
+                  - titre
+                  - message
         
