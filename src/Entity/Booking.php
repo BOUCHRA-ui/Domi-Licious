@@ -39,6 +39,11 @@ class Booking
      */
     private $menu;
 
+    public function __construct()
+    {
+        $this->dateReservation = new \Datetime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -95,6 +100,7 @@ class Booking
 
         return $this;
     }
+    
 
 
 }
