@@ -46,7 +46,7 @@ class Chef
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $presentation;
 
@@ -179,11 +179,6 @@ class Chef
         }
 
         return $this;
-    }
-
-    public function __toString(): ?string
-    {
-        return '';
     }
 
     /**

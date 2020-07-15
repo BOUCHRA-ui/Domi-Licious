@@ -36,16 +36,16 @@ class Menu
      */
     private $dessert;
 
-        /**
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="menu_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="chef_images", fileNameProperty="image")
      * @var File
      */
-    private $photo;
+    private $imageFile;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeCuisine::class, inversedBy="menus")
@@ -127,12 +127,10 @@ class Menu
         return $this;
     }
 
-    /**
-     * @return File
-     */
-    public function getPhoto(): File
+    
+    public function getImageFile()
     {
-        return $this->photo;
+        return $this->imageFile;
     }
 
     /**

@@ -3,14 +3,23 @@
 {% block title %}Réservations - Domilicious{% endblock %}
 
 {% block body %}
+    <div id="page-content" class="archives-page">
+		<div class="container">
+			<div class="row">
+                <div id="main-content" class="col-md-8">
+					<article class="contact">
+						<div class="art-header">
+							<h2 class="center">Pré-confirmation de réservation</h2>
+						</div>
+						    <div class="art-content">
+                                <div id="contact_form" id="ff">
 
-
-    <h1>Booking index</h1>
+    
           <div class="paypal">
             <p>
                 <h6>Cette transaction sera payée en EUR.</h6>
                 <br>
-                    Paiement sécuriser par PayPay. 
+                    Paiement sécurisé par PayPal. 
             </p>
                 <div id="paypal-button-container"></div>
                         <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
@@ -40,7 +49,14 @@
                         }).render('#paypal-button-container');
                         </script>
 
-             </div>           
+             </div>
+             </div>
+                            </div>
+                            </div>
+                            </article>
+                            </div>
+						</div>
+					           
    
        
       

@@ -3,6 +3,8 @@
             {% block title %}Nouvelle reservation - Domilicious{% endblock %}
 
         {% block body %}
+
+        
   
     <div id="page-content" class="archives-page">
 		<div class="container">
@@ -31,7 +33,7 @@
                             <h3>Tarif</h3>
                                 <p>{{ booking.menu.price }} &euro;</p>
                                     {{ include('booking/_form.html.twig') }}
-                                <a href="{{ path('booking_index') }}">Retour</a>
+                                <a href="{{ path('menu_index') }}">Retour</a>
                                 {# <a href="{{ path('booking_calendar') }}">Voir le calendrier</a>#}
 						</div>
 					</article>
@@ -40,58 +42,8 @@
         </div>
     </div>
                 
-{% endblock %}
 
-           <section class="box-content box-2 box-style" id="menu">
-			<div class="container">
-				<div class="row heading">
-                <h1>Réservez votre menu</h1>
-                <ul>
-                    <li><strong>Entrée :</strong>{{ booking.menu.entree }}</li>
-                    <li><strong>Plat :</strong>{{ booking.menu.plat }}</li>
-                    <li><strong>Dessert :</strong>{{ booking.menu.dessert }}</li>
-                </ul>
-                <h3>Votre Chef</h3>
-                <p>{{ booking.menu.chef.prenom }} {{ booking.menu.chef.nom }}</p>
-                <h3>Tarif</h3>
-                <p>{{ booking.menu.price }} &euro;
 
-                        <div id="paypal-button-container"></div>
-                        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
-                        <script>
-                        paypal.Buttons({
-                            style: {
-                                shape: 'pill',
-                                color: 'gold',
-                                layout: 'vertical',
-                                label: 'pay',
-                                
-                            },
-                            createOrder: function(data, actions) {
-                                return actions.order.create({
-                                    purchase_units: [{
-                                        amount: {
-                                            value: '1'
-                                        }
-                                    }]
-                                });
-                            },
-                            onApprove: function(data, actions) {
-                                return actions.order.capture().then(function(details) {
-                                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                                });
-                            }
-                        }).render('#paypal-button-container');
-                        </script>
-                </p>
-
-                {{ include('booking/_form.html.twig') }}
-
-                <!--<a href="{{ path('booking_index') }}">back to list</a> -->
-{#                <a href="{{ path('booking_calendar') }}">Voir le calendrier</a>#}
-            </div>
-            </div>
-            </section>
         
         {% endblock %}
        

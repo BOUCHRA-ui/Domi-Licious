@@ -16,8 +16,8 @@ class Chef1Type extends AbstractType
             ->add('prenom')
             ->add('image')
             ->add('presentation')
-            ->add('type_de_cuisine')
-            ->add('menu')
+            ->add('type_cuisine')
+            ->add('menus')
         ;
     }
 

@@ -20,17 +20,14 @@
                         <div class="wrap-img">
                             <img src="{{ asset('uploads/images/chefs/') }}{{ chef.image }}" class="image-chef">
                         </div>
-                           <button class="btn btn-secondary"><a href="{{ path('menu_index') }}">Reserver ce menu</a></button>
+                           <button class="btn btn-secondary"><a href="{{ path('menu_index') }}">Liste des menus</a></button>
+                           <a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a>
                              
                     </div>
                     <div class="col-md-6">
                         <div class="row">
                             <h3>Chef {{ chef.prenom }} {{ chef.nom }}</h3>
                             <p>{{ chef.presentation }}
-
-                               </p>
-                            <p>Menu de la base de données: <!--TODO path --> - <br>Nibh congue scripserit ne mel, pri ne amet mnesarchum.
-                               .</p>
                         </div>
                     </div>
                 </div>
