@@ -46,6 +46,41 @@
                         <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
                     </li>
 
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
+				</button>
+				<a class="navbar-brand" href="{{path('accueil')}}">
+					<img src="{{ asset('images/logo2.png') }}" class="hidden-xs" alt="logo domilicious">
+					
+					<h3 class="visible-xs">Domi'Licious</h3>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+                        <a class="page-scroll" href="{{path('chef_index')}}">Chefs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{path('menu_index')}}">Menus</a>
+                    </li>
+                    <li>
+						<a class="page-scroll" href="{{ path('contact_contact') }}">Contactez nous</a>
+					</li>
+					<li>
+                        <a class="page-scroll" href="{{path('commentaire_index')}}">Livre d'or</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{path('cgv')}}">Conditions de vente</a>
+                    </li>
+
 										
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 					
@@ -75,14 +110,12 @@
                     
 					</li>
 					{% endif %}
-					
 				
 				</ul>
 			</div>
 		</div>
 	</nav>
-
-
+  
      <section class="box-content box-3" id="menu">
         <div class="container">
             {% for menu in menus %}
@@ -104,13 +137,9 @@
                             <h3>Menu</h3>
                             <p>
                             {{ menu.entree }}
-                            <br> 
-                            <hr>
-                            {{ menu.plat }}
-                            <br>
-                            <hr>
-                             {{ menu.plat }}
-                             <hr>
+							<hr>
+							 {{ menu.plat }}
+							 <hr>
                             {{ menu.dessert }}
                             </p>
                         
@@ -121,7 +150,5 @@
             </div>
         </div>
     </section>
-
-    <a href="{{ path('menu_new') }}">Create new</a
 
 {% endblock %}

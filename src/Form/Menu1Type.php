@@ -15,6 +15,7 @@ class Menu1Type extends AbstractType
             ->add('entree')
             ->add('plat')
             ->add('dessert')
+            >add('imageFile', VichImageType::class)
         ;
     }
 
