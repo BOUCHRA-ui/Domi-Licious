@@ -29,7 +29,7 @@ class BookingController extends AbstractController
 
     /**
      * @Route("/new/{id}", name="booking_new", methods={"GET","POST"}, defaults={"id"="1"})
-     * @IsGranted("ROLE_USER")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      * @param Menu $menu
      * @param Request $request
      * @return Response
@@ -77,7 +77,7 @@ class BookingController extends AbstractController
      */
     public function edit(Request $request, Booking $booking): Response
     {
-        $form = $this->createForm(Booking2Type::class, $booking);
+        $form = $this->createForm(Booking1Type::class, $booking);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

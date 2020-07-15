@@ -22,8 +22,13 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
     }        
 
     public function load(ObjectManager $manager)
-    {            
-        $typeCuisine = $this->getReference('type-asiatique');
+    {   
+        $typeCuisine = $this->getReference('type-orientale');
+        $typeCuisine2 = $this->getReference('type-japonnais');
+        $typeCuisine3 = $this->getReference('type-asiatique');
+        $typeCuisine4 = $this->getReference('type-francais');
+        $typeCuisine5 = $this->getReference('type-italien');
+        $typeCuisine6 = $this->getReference('type-mexicain');
 
         $chef = new Chef();
         $chef->setNom('Baruch');
@@ -34,7 +39,6 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
 
         $manager->persist($chef);
 
-        $typeCuisine2 = $this->getReference('type-japonnais');
         $chef2 = new Chef();
         $chef2->setNom('Dupont');
         $chef2->setPrenom('Henry');
@@ -44,7 +48,6 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
 
         $manager->persist($chef2);
 
-        $typeCuisine3 = $this->getReference('type-francais');
         $chef3 = new Chef();
         $chef3->setNom('Sanchez');
         $chef3->setPrenom('Camelia');
@@ -54,7 +57,6 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
 
         $manager->persist($chef3);
 
-        $typeCuisine4 = $this->getReference('type-mexicain');
         $chef4 = new Chef();
         $chef4->setNom('Luciano');
         $chef4->setPrenom('Luis');
@@ -64,7 +66,6 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
 
         $manager->persist($chef4);
 
-        $typeCuisine5 = $this->getReference('type-italien');
         $chef5 = new Chef();
         $chef5->setNom('Badah');
         $chef5->setPrenom('Gilles');
@@ -74,7 +75,6 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
 
         $manager->persist($chef5);
 
-        $typeCuisine6 = $this->getReference('type-asiatique');
         $chef6 = new Chef();
         $chef6->setNom('Monty');
         $chef6->setPrenom('Prisca');
@@ -82,10 +82,15 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
         $chef6->setTypeCuisine($typeCuisine6);
         $chef6->setImage('chef-cuisinier6.jpg');
 
-        $manager->persist($chef);
+        $manager->persist($chef6);
         $manager->flush();
 
         $this->addReference('chef', $chef);
+        $this->addReference('chef2', $chef2);
+        $this->addReference('chef3', $chef3);
+        $this->addReference('chef4', $chef4);
+        $this->addReference('chef5', $chef5);
+        $this->addReference('chef6', $chef6);
     
     }
 

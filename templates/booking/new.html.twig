@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
-            {% block title %}New Booking{% endblock %}
+            {% block title %}Nouvelle reservation - Domilicious{% endblock %}
 
         {% block body %}
 
-            <div class="container">
+           <section class="box-content box-2 box-style" id="menu">
+			<div class="container">
+				<div class="row heading">
                 <h1>Réservez votre menu</h1>
                 <ul>
                     <li><strong>Entrée :</strong>{{ booking.menu.entree }}</li>
@@ -76,9 +78,11 @@
 
                 {{ include('booking/_form.html.twig') }}
 
-                <a href="{{ path('booking_index') }}">back to list</a>
+                <!--<a href="{{ path('booking_index') }}">back to list</a> -->
 {#                <a href="{{ path('booking_calendar') }}">Voir le calendrier</a>#}
             </div>
+            </div>
+            </section>
         
         {% endblock %}
        
