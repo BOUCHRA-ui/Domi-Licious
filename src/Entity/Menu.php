@@ -11,6 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=MenuRepository::class)
+ * @Vich\Uploadable
  */
 class Menu
 {
@@ -133,12 +134,11 @@ class Menu
         return $this->imageFile;
     }
 
-    /**
-     * @param File $photo
-     */
-    public function setPhoto(File $photo): void
+    public function setImageFile(string $image): self
     {
-        $this->photo = $photo;
+        $this->imageFile = $image;
+
+        return $this;
     }
 
     public function getTypeCuisine(): ?TypeCuisine
