@@ -489,6 +489,17 @@ a.btn:focus{outline: 0;}
 	text-align: center;
 	margin: 0;
 	padding: 0;
+
+}
+.firstphoto{
+	box-sizing: border-box;
+	margin-bottom: 21px;
+	padding-bottom: 21px ;
+	border:10px solid white;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+    transition:1s;
+
+
 }
 .bots{
 
@@ -506,6 +517,14 @@ a.btn:focus{outline: 0;}
 	border:10px solid white;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
     transition:1s;
+}
+
+.livres img{
+	border:10px solid white;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+	transition:2s;
+	padding: 5px;
+	margin: 5px;
 }
 
 /*Remove that CSS*/
