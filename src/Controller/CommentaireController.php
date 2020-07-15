@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
-use App\Form\Commentaire1Type;
+use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,38 +17,32 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentaireController extends AbstractController
 {
     /**
-     * @Route("/", name="commentaire_index", methods={"GET"})
+     * @Route("/", name="commentaire_index", methods={"GET","POST"})
      */
-    public function index(CommentaireRepository $commentaireRepository): Response
-    {
-        return $this->render('commentaire/index.html.twig', [
-            'commentaires' => $commentaireRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="commentaire_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
+    public function index(CommentaireRepository $commentaireRepository, Request $request): Response
     {
         $commentaire = new Commentaire();
-        $form = $this->createForm(Commentaire1Type::class, $commentaire);
+        $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $commentaire->setEmail($this->getEmail());
+            
             $entityManager->persist($commentaire);
             $entityManager->flush();
 
             return $this->redirectToRoute('commentaire_index');
         }
-
-        return $this->render('commentaire/new.html.twig', [
+        return $this->render('commentaire/index.html.twig', [
             'commentaire' => $commentaire,
             'form' => $form->createView(),
+            'commentaires' => $commentaireRepository->findAll(),
         ]);
     }
 
+    
     /**
      * @Route("/{id}", name="commentaire_show", methods={"GET"})
      */
@@ -64,7 +58,7 @@ class CommentaireController extends AbstractController
      */
     public function edit(Request $request, Commentaire $commentaire): Response
     {
-        $form = $this->createForm(Commentaire1Type::class, $commentaire);
+        $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -78,9 +72,6 @@ class CommentaireController extends AbstractController
             'form' => $form->createView(),
 
         ]);
-
-        $posts = $entityManager->getRepository(Post::class)->getLastInserted('App:Post', 2);
-
 
     }
 

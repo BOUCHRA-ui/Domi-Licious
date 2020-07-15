@@ -32,7 +32,8 @@ class TypeCuisineFixture extends Fixture
             $manager->persist($typeCuisine);
 
             $typeCuisine2 = new TypeCuisine();
-            $typeCuisine2->setTitle('Italienne');
+            $typeCuisine2->setTitle('vegetarian');
+
             $typeCuisine2->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.');
             $typeCuisine2->setPhoto('s2.jpg');
 
@@ -69,12 +70,12 @@ class TypeCuisineFixture extends Fixture
       
          $manager->flush();
 
-         $this->addReference('type-Francaise', $typeCuisine);
-         $this->addReference('type-Italienne', $typeCuisine2);
-         $this->addReference('type-Mexicainne', $typeCuisine3);
-         $this->addReference('type-Africaine', $typeCuisine4);
-         $this->addReference('type-Asiatique', $typeCuisine5);
-         $this->addReference('type-Végétarienne', $typeCuisine6);
+         $this->addReference('type-orientale', $typeCuisine);
+         $this->addReference('type-vegetarian', $typeCuisine2);
+         $this->addReference('type-asiatique', $typeCuisine3);
+         $this->addReference('type-francais', $typeCuisine4);
+         $this->addReference('type-italien', $typeCuisine5);
+         $this->addReference('type-mexicain', $typeCuisine6);
 
     }
 }

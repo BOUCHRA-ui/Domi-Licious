@@ -31,7 +31,6 @@
         "symfony/validator": "5.1.*",
         "symfony/web-link": "5.1.*",
         "symfony/yaml": "5.1.*",
-        "tattali/calendar-bundle": "^1.2",
         "twig/intl-extra": "^3.0",
         "vich/uploader-bundle": "^1.14"
     },

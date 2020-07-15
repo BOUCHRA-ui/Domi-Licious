@@ -1,38 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Booking index{% endblock %}
+{% block title %}Réservations - Domilicious{% endblock %}
 
 {% block body %}
 
 
     <h1>Booking index</h1>
+          <div class="paypal">
+            <p>
+                <h6>Cette transaction sera payée en EUR.</h6>
+                <br>
+                    Paiement sécuriser par PayPay. 
+            </p>
+                <div id="paypal-button-container"></div>
+                        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
+                        <script>
+                        paypal.Buttons({
+                            style: {
+                                shape: 'pill',
+                                color: 'gold',
+                                layout: 'vertical',
+                                label: 'pay',
+                                
+                            },
+                            createOrder: function(data, actions) {
+                                return actions.order.create({
+                                    purchase_units: [{
+                                        amount: {
+                                            value: '1'
+                                        }
+                                    }]
+                                });
+                            },
+                            onApprove: function(data, actions) {
+                                return actions.order.capture().then(function(details) {
+                                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                });
+                            }
+                        }).render('#paypal-button-container');
+                        </script>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date de réservation</th>
-                <th>Message</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for booking in bookings %}
-            <tr>
-                <td>{{ booking.dateReservation ? booking.dateReservation|date("d/m/Y" ~ " à " ~ "H:i:s", "Europe/Paris")}}</td>
-                <td>{{ booking.message }}</td>
-                <td>
-                    <a href="{{ path('booking_show', {'id': booking.id}) }}">show</a>
-                    <a href="{{ path('booking_edit', {'id': booking.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('booking_new') }}">Create new</a>
+             </div>           
+   
+       
+      
+    
 
 {% endblock %}
