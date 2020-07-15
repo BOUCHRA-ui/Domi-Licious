@@ -573,3 +573,9 @@ button:before, button:after {
 	{
 		color:white;
 	}
+
+.paypal{
+
+	box-sizing: border-box;
+	text-align: center;
+}	
