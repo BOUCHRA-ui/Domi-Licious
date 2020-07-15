@@ -516,7 +516,7 @@ a.btn:focus{outline: 0;}
 
 
 
-button {
+button.ribbon {
   margin: 20px 0;
   line-height: 34px;
   position: relative;

@@ -44,6 +44,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/menu/new, roles: ROLE_ADMIN }
+         
 
         # - { path: '^/admin', roles: ROLE_USER_IP, ip: 127.0.0.1 }
         # - { path: '^/admin', roles: ROLE_USER_PORT, ip: 127.0.0.1, port: 8080 }
