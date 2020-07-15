@@ -97,7 +97,9 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return array(
-            TypeCuisineFixture::class
+    
+            TypeCuisineFixture::class,
+            
         );
     }
 }

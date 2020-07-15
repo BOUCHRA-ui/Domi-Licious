@@ -211,7 +211,14 @@
 	</div>
 	<!-- Footer -->
         {% endblock %}
-
+  			{% block flash %}
+            {% for message in app.flashes('error') %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endfor %} 
+	  {% endblock %}
+	  
          {% block javascripts %}
         <!-- Core JavaScript Files -->
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
