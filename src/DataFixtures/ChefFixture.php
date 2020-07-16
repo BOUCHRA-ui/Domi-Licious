@@ -34,7 +34,7 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
         $chef->setNom('Baruch');
         $chef->setPrenom('Emmanuel');
         $chef->setPresentation('Emmanuel a baigné dès l\'enfance dans l\'univers de la gastronomie. Son père et son grand-père, éminents amateurs des arts de la table, courent les restaurants étoilés de la Côte d\'Azur. Passionnée et amoureux des desserts, il vous enchantera du début à la fin du repas.');
-        $chef->setTypeCuisine($typeCuisine);
+        $chef->setTypeCuisine($typeCuisine4);
         $chef->setImage('chef-de-cuisine.jpg');
 
         $manager->persist($chef);
@@ -61,7 +61,7 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
         $chef4->setNom('Luciano');
         $chef4->setPrenom('Luis');
         $chef4->setPresentation('Encore élève à l\'école hôtelière de La Rochelle, Luis passait, sans le savoir, devant son futur restaurant sur cette petite route entre mer et montagne qui devait le mener vers Rome. Ainsi tous les chemins menant jusque la-bas, il mêle cuisine italienne et francaise à la perfection. Les antipastis sont son dada et la pizza a trouvé son roi!');
-        $chef4->setTypeCuisine($typeCuisine4);
+        $chef4->setTypeCuisine($typeCuisine5);
         $chef4->setImage('chef-cuisinier4.jpg');
 
         $manager->persist($chef4);
@@ -70,7 +70,7 @@ class ChefFixture extends Fixture implements DependentFixtureInterface
         $chef5->setNom('Badah');
         $chef5->setPrenom('Gilles');
         $chef5->setPresentation('Gilles se forme dans de grands restaurants et acquiert comme chef deux étoiles Michelin chez Joël Robuchon. Il ouvre son propre restaurant en 2010 à Paris où il obtient l\'année suivante une étoile Michelin. Bistronome et passionnée, il présente une carte différente chaque semaine avec des produits frais et en cycle court. Amateur de grands vins, il saura vous conseiller celui qui accomodera ses plats parfaitement.');
-        $chef5->setTypeCuisine($typeCuisine5);
+        $chef5->setTypeCuisine($typeCuisine);
         $chef5->setImage('chef-cuisinier5.jpg');
 
         $manager->persist($chef5);

@@ -55,7 +55,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu2->setDessert('Bananes flambées au téquila OU Cake aux cerise');
             $menu2->setImage('mex.jpg');
             $menu2->setTypeCuisine($typeCuisine6);
-            $menu2->setChef($chef2);
+            $menu2->setChef($chef6);
             $menu2->setPrice(200);
 
             $manager->persist($menu2);
@@ -66,7 +66,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu3->setDessert('Pavlova orange aux dates OU Ananas frais chantilly aux épices');
             $menu3->setImage('oriafri.jpg');
             $menu3->setTypeCuisine($typeCuisine);
-            $menu3->setChef($chef3);
+            $menu3->setChef($chef5);
             $menu3->setPrice(200);
 
             $manager->persist($menu3);
@@ -88,7 +88,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu5->setDessert('Kakigori, la glace pilée japonaise');
             $menu5->setImage('vege.jpg');
             $menu5->setTypeCuisine($typeCuisine2);
-            $menu5->setChef($chef5);
+            $menu5->setChef($chef2);
             $menu5->setPrice(200);
 
             $manager->persist($menu5);
@@ -99,7 +99,7 @@ class MenuFixture extends Fixture implements DependentFixtureInterface
             $menu6->setDessert('Eppure aux fruits OU Mousse au thé matcha');
             $menu6->setImage('asi.jpg');
             $menu6->setTypeCuisine($typeCuisine3);
-            $menu6->setChef($chef6);
+            $menu6->setChef($chef3);
             $menu6->setPrice(200);
 
             $manager->persist($menu6);     
