@@ -13,7 +13,9 @@ class CommentaireType extends AbstractType
     {
         $builder
            
+            ->add('titre')
             ->add('message')
+            
             
            
         ;

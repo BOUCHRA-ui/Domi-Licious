@@ -40,7 +40,8 @@
                                 <h6>{{ commentaire.email }}</h6>
                                     <div class="col-md-12">
                                          <div class="row">
-                                            <p> <em>{{ commentaire.message }}</em></p>
+                                            <p><em>{{ commentaire.titre }}</em></p>
+                                            <p><em>{{ commentaire.message }}</em></p>
                                             <p><em>{{ commentaire.createdAt ? commentaire.createdAt|date('d-m-Y') : '' }}</em></p>
                                          </div>
                                     </div>
